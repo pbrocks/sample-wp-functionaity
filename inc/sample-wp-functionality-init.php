@@ -3,7 +3,7 @@
  * Initialize redirection functionality on activation.
  *
  * @since 0.1.0
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -160,13 +160,13 @@ function prepare_cleaned_accounts_json( $current_accounts ) {
 }
 
 add_filter( 'custom_menu_order', '__return_true' );
-add_filter( 'menu_order', 'aap_dashboard_menus_custom_order' );
+add_filter( 'menu_order', 'sample_dashboard_menus_custom_order' );
 /**
- * [aap_dashboard_menus_custom_order] Create custom order of admin menus.
+ * [sample_dashboard_menus_custom_order] Create custom order of admin menus.
  *
  * @return array
  */
-function aap_dashboard_menus_custom_order() {
+function sample_dashboard_menus_custom_order() {
 	return array(
 		'index.php',
 		'wpengine-common',
@@ -196,16 +196,16 @@ function admin_scripts_needed() {
 }
 
 /**
- * [aap_get_active_organizations]
+ * [sample_get_active_organizations]
  *
  * pbrocks move
  *
  * @return array Orgs from Groups.
  */
-function aap_get_active_organizations() {
+function sample_get_active_organizations() {
 	$current_user = wp_get_current_user();
 	// print_r($current_user);
-	if ( current_user_can( 'administrator' ) || current_user_can( 'um_aap-super-admin' ) ) {
+	if ( current_user_can( 'administrator' ) || current_user_can( 'um_sample-super-admin' ) ) {
 		$orgs_groups = get_transient( 'all_active_orgs' );
 		if ( ! $orgs_groups ) {
 			$org_parent = Groups_Group::read_by_name( 'Organizations' );
@@ -247,15 +247,15 @@ function aap_get_active_organizations() {
 }
 
 /**
- * [aap_get_active_pharmacies]
+ * [sample_get_active_pharmacies]
  *
  * pbrocks move
  *
  * @return array Pharms from Groups.
  */
-function aap_get_active_pharmacies() {
+function sample_get_active_pharmacies() {
 	$current_user = wp_get_current_user();
-	if ( current_user_can( 'administrator' ) || current_user_can( 'um_aap-super-admin' ) ) {
+	if ( current_user_can( 'administrator' ) || current_user_can( 'um_sample-super-admin' ) ) {
 		$pharms_groups = get_transient( 'all_active_pharms' );
 
 		if ( ! $pharms_groups ) {
@@ -295,7 +295,7 @@ function aap_get_active_pharmacies() {
 			// any pharmacies explicitly in "pharmacy_names"
 			// Now we can make use of the organization call back function
 			// to return the organizations for which we should get the pharmacies
-			$user_orgs = aap_get_active_organizations();
+			$user_orgs = sample_get_active_organizations();
 			$user_pharmacies = array();
 			foreach( $user_orgs as $organization ) {
 			    $my_org_group = Groups_Group::read_by_name( $organization );
@@ -315,13 +315,13 @@ function aap_get_active_pharmacies() {
 }
 
 /**
- * [aap_get_active_user_roles]
+ * [sample_get_active_user_roles]
  *
  * pbrocks move
  *
  * @return array Roles array.
  */
-function aap_get_active_user_roles() {
+function sample_get_active_user_roles() {
 	$wp_roles      = wp_roles();
 	$wp_role_names = $wp_roles->role_names;
 	unset( $wp_role_names['um_pharmacy-azure-integration'] );
@@ -329,28 +329,28 @@ function aap_get_active_user_roles() {
 	unset( $wp_role_names['um_marketing-manager'] );
 	unset( $wp_role_names['um_marketing-editor'] );
 	unset( $wp_role_names['um_territory-manager'] );
-	unset( $wp_role_names['um_aap-employee'] );
+	unset( $wp_role_names['um_sample-employee'] );
 	switch ( true ) {
 		case current_user_can( 'um_org-owner' ):
-			unset( $wp_role_names['um_aap-super-admin'] );
-			unset( $wp_role_names['um_aap-super-admin'] );
+			unset( $wp_role_names['um_sample-super-admin'] );
+			unset( $wp_role_names['um_sample-super-admin'] );
 			unset( $wp_role_names['um_marketing-manager'] );
 			break;
 		case current_user_can( 'um_org-admin' ):
 			unset( $wp_role_names['administrator'] );
-			unset( $wp_role_names['um_aap-super-admin'] );
+			unset( $wp_role_names['um_sample-super-admin'] );
 			unset( $wp_role_names['um_marketing-manager'] );
 			break;
 		case current_user_can( 'um_pharmacy-manager' ):
 			unset( $wp_role_names['administrator'] );
-			unset( $wp_role_names['um_aap-super-admin'] );
+			unset( $wp_role_names['um_sample-super-admin'] );
 			unset( $wp_role_names['um_org-owner'] );
 			unset( $wp_role_names['um_org-admin'] );
 			unset( $wp_role_names['um_marketing-manager'] );
 			break;
 		case current_user_can( 'um_pharmacy-tech' ):
 			unset( $wp_role_names['administrator'] );
-			unset( $wp_role_names['um_aap-super-admin'] );
+			unset( $wp_role_names['um_sample-super-admin'] );
 			unset( $wp_role_names['um_org-owner'] );
 			unset( $wp_role_names['um_org-admin'] );
 			unset( $wp_role_names['um_pharmacy-manager'] );

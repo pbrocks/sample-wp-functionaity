@@ -3,7 +3,7 @@
  * Class for User Modifications.
  *
  * @since 0.12.2
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,14 +15,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Sample_WP_User_Modifications {
 
+
 	/**
 	 * Main construct
 	 *
 	 * @since 0.1.0
 	 */
 	public function __construct() {
-		add_action( 'admin_head-users.php', array( $this, 'aap_user_id_column_style' ) );
-		add_action( 'admin_init', array( $this, 'aap_user_id_column_html' ) );
+		add_action( 'admin_head-users.php', array( $this, 'sample_user_id_column_style' ) );
+		add_action( 'admin_init', array( $this, 'sample_user_id_column_html' ) );
 	}
 	/**
 	 * Add the user id column after the user's checkbox
@@ -32,19 +33,19 @@ class Sample_WP_User_Modifications {
 	 * @param array $insert UserID.
 	 * @return array
 	 */
-	public function aap_array_insert( $array, $index, $insert ) {
+	public function sample_array_insert( $array, $index, $insert ) {
 		return array_slice( $array, 0, $index, true ) + $insert + array_slice( $array, $index, count( $array ) - $index, true );
 	}
 
 	/**
-	 * [aap_user_id_column_content] User ID column content.
+	 * [sample_user_id_column_content] User ID column content.
 	 *
 	 * @param  mixed   $value       UserID.
 	 * @param  string  $column_name UserID.
 	 * @param  integer $user_id     UserID.
 	 * @return mixed
 	 */
-	public function aap_user_id_column_content( $value, $column_name, $user_id ) {
+	public function sample_user_id_column_content( $value, $column_name, $user_id ) {
 		if ( 'user_id' === $column_name ) {
 			return $user_id;
 		}
@@ -57,44 +58,44 @@ class Sample_WP_User_Modifications {
 	 * @param array $columns The original columns.
 	 * @return array $columns The filtered columns.
 	 */
-	public function aap_user_id_column_sortable( $columns ) {
+	public function sample_user_id_column_sortable( $columns ) {
 		$columns['user_id'] = 'ID';
 		return $columns;
 	}
 
 	/**
-	 * [aap_user_id_column_style] Set column width.
+	 * [sample_user_id_column_style] Set column width.
 	 *
 	 * @return void
 	 */
-	public function aap_user_id_column_style() {
+	public function sample_user_id_column_style() {
 		echo '<style>.column-user_id{width: 6%}</style>';
 	}
 
 	/**
-	 * [aap_user_id_column_html]
+	 * [sample_user_id_column_html]
 	 *
 	 * @return void
 	 */
-	public function aap_user_id_column_html() {
+	public function sample_user_id_column_html() {
 		if ( ! is_multisite() ) {
 			add_filter(
 				'manage_users_columns',
 				function ( $columns ) {
-					return $this->aap_array_insert( $columns, 1, array( 'user_id' => 'ID' ) );
+					return $this->sample_array_insert( $columns, 1, array( 'user_id' => 'ID' ) );
 				}
 			);
-			add_filter( 'manage_users_custom_column', array( $this, 'aap_user_id_column_content' ), 10, 3 );
-			add_filter( 'manage_users_sortable_columns', array( $this, 'aap_user_id_column_sortable' ) );
+			add_filter( 'manage_users_custom_column', array( $this, 'sample_user_id_column_content' ), 10, 3 );
+			add_filter( 'manage_users_sortable_columns', array( $this, 'sample_user_id_column_sortable' ) );
 		} else {
 			add_filter(
 				'manage_users-network_columns',
 				function ( $columns ) {
-					return $this->aap_array_insert( $columns, 1, array( 'user_id' => 'ID' ) );
+					return $this->sample_array_insert( $columns, 1, array( 'user_id' => 'ID' ) );
 				}
 			);
-			add_filter( 'manage_users_custom_column', array( $this, 'aap_user_id_column_content' ), 10, 3 );
-			add_filter( 'manage_users-network_sortable_columns', array( $this, 'aap_user_id_column_sortable' ) );
+			add_filter( 'manage_users_custom_column', array( $this, 'sample_user_id_column_content' ), 10, 3 );
+			add_filter( 'manage_users-network_sortable_columns', array( $this, 'sample_user_id_column_sortable' ) );
 		}
 	}
 }

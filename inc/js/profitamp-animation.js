@@ -1,7 +1,7 @@
 /**
  *  Scroll function courtesy of Scott Dowding; http://stackoverflow.com/questions/487073/check-if-element-is-visible-after-scrolling
  *
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  **/
 
 jQuery( document ).ready(

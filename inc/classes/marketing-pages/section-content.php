@@ -3,7 +3,7 @@
  * [$section_content]
  *
  * @var string
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 $sections['membership_map_locked'] = '
@@ -60,12 +60,12 @@ $sections['membership_media_left'] = '
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"callout-p","fontSize":"small"} -->
-<p class="callout-p has-small-font-size">We offer a free purchasing analysis, <a href="https://www.retailplanograms.com/" target="_blank" rel="noreferrer noopener">Retail Plan-O-Grams</a>, <a href="https://store.apirx.com/customer/account/login/" target="_blank" rel="noreferrer noopener">product recommendations</a>, and more based on your pharmacy and your customer base. <a href="' . home_url() . '/aap-membership/" target="_blank" rel="noreferrer noopener">more</a></p>
+<p class="callout-p has-small-font-size">We offer a free purchasing analysis, <a href="https://www.retailplanograms.com/" target="_blank" rel="noreferrer noopener">Retail Plan-O-Grams</a>, <a href="https://store.apirx.com/customer/account/login/" target="_blank" rel="noreferrer noopener">product recommendations</a>, and more based on your pharmacy and your customer base. <a href="' . home_url() . '/sample-membership/" target="_blank" rel="noreferrer noopener">more</a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons {"contentJustification":"left"} -->
 <div class="wp-block-buttons is-content-justification-left"><!-- wp:button {"fontSize":"small"} -->
-<div class="wp-block-button has-custom-font-size has-small-font-size"><a class="wp-block-button__link" href="' . WP_CONTENT_URL . '/aap-membership/#get-started-now">Become an Sample Member</a></div>
+<div class="wp-block-button has-custom-font-size has-small-font-size"><a class="wp-block-button__link" href="' . WP_CONTENT_URL . '/sample-membership/#get-started-now">Become an Sample Member</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 
@@ -728,7 +728,7 @@ $sections['plan_comparison'] = '
 
 $sections['api_discounts'] = '
 <!-- wp:group {"align":"full","style":{"color":{"background":"#282828"}},"className":"api-discounts-callout"} -->
-<div class="wp-block-group alignfull api-discounts-callout has-background" style="background-color:#282828"><!-- wp:media-text {"align":"full","mediaId":599,"mediaLink":"https://rxaap-dev.local/become-an-api-customer/big-store-background2/","mediaType":"image","className":"api-discount-callout"} -->
+<div class="wp-block-group alignfull api-discounts-callout has-background" style="background-color:#282828"><!-- wp:media-text {"align":"full","mediaId":599,"mediaLink":"https://rxsample-dev.local/become-an-api-customer/big-store-background2/","mediaType":"image","className":"api-discount-callout"} -->
 <div class="wp-block-media-text alignfull is-stacked-on-mobile api-discount-callout"><figure class="wp-block-media-text__media"><img src="' . WP_CONTENT_URL . '/uploads/2021/07/big-store-background2.png" alt="" class="wp-image-599 size-full"/></figure><div class="wp-block-media-text__content"><!-- wp:group {"className":"media-text-right"} -->
 <div class="wp-block-group media-text-right"><!-- wp:heading {"textColor":"white","fontSize":"extra-large"} -->
 <h2 class="has-white-color has-text-color has-extra-large-font-size">Bringing high-volume discounts <strong>to your pharmacy</strong></h2>
@@ -764,7 +764,7 @@ $sections['api_discounts'] = '
 
 $sections['api_bargain'] = '
 <!-- wp:group {"align":"full","style":{"color":{"background":"#f7f7f8"}},"className":"api-bargain-callout"} -->
-<div class="wp-block-group alignfull api-bargain-callout has-background" style="background-color:#f7f7f8"><!-- wp:media-text {"align":"full","mediaPosition":"right","mediaId":600,"mediaLink":"https://rxaap-dev.local/become-an-api-customer/bargain-pic/","mediaType":"image"} -->
+<div class="wp-block-group alignfull api-bargain-callout has-background" style="background-color:#f7f7f8"><!-- wp:media-text {"align":"full","mediaPosition":"right","mediaId":600,"mediaLink":"https://rxsample-dev.local/become-an-api-customer/bargain-pic/","mediaType":"image"} -->
 <div class="wp-block-media-text alignfull has-media-on-the-right is-stacked-on-mobile"><figure class="wp-block-media-text__media"><img src="' . WP_CONTENT_URL . '/uploads/2021/07/bargain-pic.png" alt="" class="wp-image-600 size-full"/></figure><div class="wp-block-media-text__content"><!-- wp:group {"align":"full","className":"media-text-left"} -->
 <div class="wp-block-group alignfull media-text-left"><!-- wp:heading {"fontSize":"extra-large"} -->
 <h2 class="has-extra-large-font-size">Don\'t start out on a bargain hunt and end up in a wild goose chase.</h2>

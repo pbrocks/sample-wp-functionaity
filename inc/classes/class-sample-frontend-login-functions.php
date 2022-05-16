@@ -2,7 +2,7 @@
 /**
  * Class to build Login Redirects.
  *
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  * @since 0.3.1
  */
 
@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Sample_Frontend_Login_Functions {
 
 
+
 	/**
 	 * Main construct
 	 *
@@ -25,12 +26,12 @@ class Sample_Frontend_Login_Functions {
 	 */
 	public function __construct() {
 		add_action( 'template_redirect', array( $this, 'redirect_away_from_private' ) );
-		add_action( 'login_enqueue_scripts', array( $this, 'aap_wp_login_scripts' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'aap_registration_form_script' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'aap_wp_profitamp_scripts' ), 10, 1 );
-		add_filter( 'login_redirect', array( $this, 'aap_login_redirect' ), 11, 3 );
+		add_action( 'login_enqueue_scripts', array( $this, 'sample_wp_login_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'sample_registration_form_script' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'sample_wp_profitamp_scripts' ), 10, 1 );
+		add_filter( 'login_redirect', array( $this, 'sample_login_redirect' ), 11, 3 );
 		remove_action( 'um_registration_complete', 'um_check_user_status', 100, 2 );
-		add_action( 'um_registration_complete', array( $this, 'aap_um_check_user_status' ), 1, 2 );
+		add_action( 'um_registration_complete', array( $this, 'sample_um_check_user_status' ), 1, 2 );
 	}
 
 	// phpcs:disable
@@ -40,7 +41,7 @@ class Sample_Frontend_Login_Functions {
 	 * @param $user_id
 	 * @param $args
 	 */
-	public function aap_um_check_user_status( $user_id, $args ) {
+	public function sample_um_check_user_status( $user_id, $args ) {
 		$status = um_user( 'account_status' );
 
 		/**
@@ -160,7 +161,7 @@ class Sample_Frontend_Login_Functions {
 	 * @return void
 	 */
 	public function redirect_away_from_private() {
-		if ( 'rxaap_organization' === get_post_type() || 'rxaap_pharmacy' === get_post_type() ) {
+		if ( 'rxsample_organization' === get_post_type() || 'rxsample_pharmacy' === get_post_type() ) {
 			if ( ! is_user_logged_in() ) {
 				wp_safe_redirect( home_url() );
 				exit;
@@ -169,7 +170,7 @@ class Sample_Frontend_Login_Functions {
 	}
 
 	/**
-	 * [aap_wp_profitamp_animation_scripts]
+	 * [sample_wp_profitamp_animation_scripts]
 	 *
 	 * @since 1.0.0
 	 *
@@ -177,7 +178,7 @@ class Sample_Frontend_Login_Functions {
 	 *
 	 * @return void
 	 */
-	public function aap_wp_profitamp_scripts( $hook ) {
+	public function sample_wp_profitamp_scripts( $hook ) {
 		// create my own version codes.
 		$my_js_ver = gmdate( 'ymd-Gis', filemtime( plugin_dir_path( __DIR__ ) . 'js/profitamp-animation.js' ) );
 		wp_register_script(
@@ -195,11 +196,11 @@ class Sample_Frontend_Login_Functions {
 	}
 
 	/**
-	 * [aap_registration_form_script]
+	 * [sample_registration_form_script]
 	 *
 	 * @return void
 	 */
-	public function aap_registration_form_script() {
+	public function sample_registration_form_script() {
 		wp_register_script(
 			'turn-autocomplete-off',
 			plugins_url( 'js/turn-autocomplete-off.js', __DIR__ ),
@@ -210,12 +211,12 @@ class Sample_Frontend_Login_Functions {
 	}
 
 	/**
-	 * [aap_wp_login_scripts]
+	 * [sample_wp_login_scripts]
 	 *
 	 * @since 1.0.0
 	 * @return void
 	 */
-	public function aap_wp_login_scripts() {
+	public function sample_wp_login_scripts() {
 		wp_deregister_style( 'login-style' );
 		wp_register_style( 'login-style', plugins_url( 'css/login-style.css', __DIR__ ), time(), 1.0 );
 		wp_enqueue_style( 'login-style' );
@@ -223,14 +224,14 @@ class Sample_Frontend_Login_Functions {
 
 
 	/**
-	 * [aap_login_redirect]
+	 * [sample_login_redirect]
 	 *
 	 * @param  [type] $redirect_to [description].
 	 * @param  [type] $request     [description].
 	 * @param  [type] $user        [description].
 	 * @return [type]              [description].
 	 */
-	public function aap_login_redirect( $redirect_to, $request, $user ) {
+	public function sample_login_redirect( $redirect_to, $request, $user ) {
 		$options = get_option( 'login_redirect_settings' );
 
 		if ( isset( $user->roles ) && is_array( $user->roles ) ) {
@@ -261,7 +262,7 @@ class Sample_Frontend_Login_Functions {
 	 * @param array   $args Query Arguments.
 	 * @return void
 	 */
-	public function aap_um_after_insert_user( $user_id, $args ) {
+	public function sample_um_after_insert_user( $user_id, $args ) {
 		if ( empty( $user_id ) || ( is_object( $user_id ) && is_a( $user_id, 'WP_Error' ) ) ) {
 			return;
 		}

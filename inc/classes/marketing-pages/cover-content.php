@@ -3,13 +3,13 @@
  * [$cover_content]
  *
  * @var string
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 $covers['home_cover'] = '
 <!-- wp:cover {"url":"' . WP_CONTENT_URL . '/uploads/2021/06/home-banner-1.png","id":161,"dimRatio":0,"overlayColor":"white","focalPoint":{"x":"0.50","y":"0.50"},"minHeight":500,"contentPosition":"center center","align":"full","className":"hero-section","style":{"spacing":{"padding":{"top":"150px","right":"20px","bottom":"100px","left":"20px"}}}} -->
 <div class="wp-block-cover alignfull has-white-background-color hero-section" style="padding-top:150px;padding-right:20px;padding-bottom:100px;padding-left:20px;min-height:500px"><img class="wp-block-cover__image-background wp-image-161" alt="" src="' . WP_CONTENT_URL . '/uploads/2021/06/home-banner-1.png" style="object-position:50% 50%" data-object-fit="cover" data-object-position="50% 50%"/><div class="wp-block-cover__inner-container"><!-- wp:image {"align":"center","id":957,"width":345,"height":162,"sizeSlug":"large","linkDestination":"none","className":"hero-section-logo"} -->
-<div class="wp-block-image hero-section-logo"><figure class="aligncenter size-large is-resized"><img src="' . WP_CONTENT_URL . '/uploads/2021/09/aap-logo.svg" alt="" class="wp-image-957" width="345" height="162"/></figure></div>
+<div class="wp-block-image hero-section-logo"><figure class="aligncenter size-large is-resized"><img src="' . WP_CONTENT_URL . '/uploads/2021/09/sample-logo.svg" alt="" class="wp-image-957" width="345" height="162"/></figure></div>
 <!-- /wp:image -->
 
 <!-- wp:paragraph {"align":"center","placeholder":"Write title…","className":"hero-section-sub-heading","fontSize":"normal"} -->
@@ -128,8 +128,8 @@ $covers['profitamp_hero'] = '
 <!-- /wp:columns -->
 
 <!-- wp:buttons {"contentJustification":"center"} -->
-<div class="wp-block-buttons is-content-justification-center"><!-- wp:button {"style":{"color":{"background":"#1b75bb"},"border":{"radius":10}},"className":"hero-section-button aap-button"} -->
-<div class="wp-block-button hero-section-button aap-button"><a class="wp-block-button__link has-background" href="#schedule-an-appointment" style="border-radius:10px;background-color:#1b75bb">Get insight. Get ProfitAmp.</a></div>
+<div class="wp-block-buttons is-content-justification-center"><!-- wp:button {"style":{"color":{"background":"#1b75bb"},"border":{"radius":10}},"className":"hero-section-button sample-button"} -->
+<div class="wp-block-button hero-section-button sample-button"><a class="wp-block-button__link has-background" href="#schedule-an-appointment" style="border-radius:10px;background-color:#1b75bb">Get insight. Get ProfitAmp.</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group --></div></div>
@@ -180,8 +180,8 @@ $covers['api_customer_hero'] = '
 <!-- /wp:columns -->
 
 <!-- wp:buttons {"contentJustification":"center"} -->
-<div class="wp-block-buttons is-content-justification-center"><!-- wp:button {"style":{"color":{"background":"#1b75bb"},"border":{"radius":10}},"className":"hero-section-button aap-button","fontSize":"small"} -->
-<div class="wp-block-button has-custom-font-size hero-section-button aap-button has-small-font-size"><a class="wp-block-button__link has-background" href="#get-your-api-account" style="border-radius:10px;background-color:#1b75bb">Get Your API account started today</a></div>
+<div class="wp-block-buttons is-content-justification-center"><!-- wp:button {"style":{"color":{"background":"#1b75bb"},"border":{"radius":10}},"className":"hero-section-button sample-button","fontSize":"small"} -->
+<div class="wp-block-button has-custom-font-size hero-section-button sample-button has-small-font-size"><a class="wp-block-button__link has-background" href="#get-your-api-account" style="border-radius:10px;background-color:#1b75bb">Get Your API account started today</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 

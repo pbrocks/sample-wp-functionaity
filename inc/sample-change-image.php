@@ -3,7 +3,7 @@
  * Using AJAX to change hero image.
  *
  * @since 0.8.9
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -3,7 +3,7 @@
  * [$become_member]
  *
  * @var string
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 $become_member = '

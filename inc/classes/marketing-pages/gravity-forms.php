@@ -3,7 +3,7 @@
  * [$gravity_forms]
  *
  * @var string
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 $gravity_forms['gravity_form_8_blue'] = '

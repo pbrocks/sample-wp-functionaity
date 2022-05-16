@@ -1,7 +1,7 @@
 /**
  * Script run inside a Customizer preview frame.
  *
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 (function ($) {

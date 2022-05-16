@@ -1,7 +1,7 @@
 /**
  * Empty input fields on UM registration form.
  *
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 (function () {

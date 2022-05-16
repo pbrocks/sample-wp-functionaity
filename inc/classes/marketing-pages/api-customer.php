@@ -3,7 +3,7 @@
  * [$api_customer_content]
  *
  * @var string
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 $api_customer = '
@@ -50,8 +50,8 @@ $api_customer = '
 <!-- /wp:columns -->
 
 <!-- wp:buttons {"contentJustification":"center"} -->
-<div class="wp-block-buttons is-content-justification-center"><!-- wp:button {"style":{"color":{"background":"#1b75bb"},"border":{"radius":10}},"className":"hero-section-button aap-button","fontSize":"small"} -->
-<div class="wp-block-button has-custom-font-size hero-section-button aap-button has-small-font-size"><a class="wp-block-button__link has-background" href="#get-your-api-account" style="border-radius:10px;background-color:#1b75bb">Get Your API account started today</a></div>
+<div class="wp-block-buttons is-content-justification-center"><!-- wp:button {"style":{"color":{"background":"#1b75bb"},"border":{"radius":10}},"className":"hero-section-button sample-button","fontSize":"small"} -->
+<div class="wp-block-button has-custom-font-size hero-section-button sample-button has-small-font-size"><a class="wp-block-button__link has-background" href="#get-your-api-account" style="border-radius:10px;background-color:#1b75bb">Get Your API account started today</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 

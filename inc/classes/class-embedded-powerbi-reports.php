@@ -3,7 +3,7 @@
  * This creates the framework for showing Embedded Power BI Reports.
  *
  * @since 0.8.4
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -98,33 +98,33 @@ class Embedded_PowerBi_Reports {
         $report_token = $this->request_powerbi_report( $group_id, $report_details['id'], $authorization_token, '9999999' );
 
 		// The microsoft powerbi javascript library.
-		wp_enqueue_script( 'aap-ms-default-powerbi-client' );
-		// write_to_error_log( 'On Line ' . __LINE__ . ' aap-ms-default-powerbi-client is enqueued ' );
+		wp_enqueue_script( 'sample-ms-default-powerbi-client' );
+		// write_to_error_log( 'On Line ' . __LINE__ . ' sample-ms-default-powerbi-client is enqueued ' );
 
 		// Configuration javascript.
-		wp_enqueue_script( 'aap-embedded-power-bi-reports' );
-		// write_to_error_log( 'On Line ' . __LINE__ . ' aap-embedded-power-bi-reports js is enqueued ' );
+		wp_enqueue_script( 'sample-embedded-power-bi-reports' );
+		// write_to_error_log( 'On Line ' . __LINE__ . ' sample-embedded-power-bi-reports js is enqueued ' );
 
 		// Embedded Power Bi CSS.
-		wp_enqueue_style( 'aap-embedded-power-bi-reports' );
-		// write_to_error_log( 'On Line ' . __LINE__ . ' aap-embedded-power-bi-reports style is enqueued ' );
+		wp_enqueue_style( 'sample-embedded-power-bi-reports' );
+		// write_to_error_log( 'On Line ' . __LINE__ . ' sample-embedded-power-bi-reports style is enqueued ' );
 
 		// Customized configuration settings.
 		$power_bi_config_js = <<<EOT
             // Embed application token.
             // from generate token step (1-AccessToken.php).
-            var rx_aap_txtAccessToken = "$report_token"; 
+            var rx_sample_txtAccessToken = "$report_token"; 
 
             // Embed URL.
             // from report details result (3-GetReportDetails.php).
-            var rx_aap_txtEmbedUrl = "{$report_details['embedUrl']}";
+            var rx_sample_txtEmbedUrl = "{$report_details['embedUrl']}";
 
             // Report Id.
             // from report details result (3-GetReportDetails.php).
-            var rx_aap_txtEmbedReportId = "{$report_details['id']}";
+            var rx_sample_txtEmbedReportId = "{$report_details['id']}";
 EOT;
 
-		wp_add_inline_script( 'aap-embedded-power-bi-reports', $power_bi_config_js, 'before' );
+		wp_add_inline_script( 'sample-embedded-power-bi-reports', $power_bi_config_js, 'before' );
 
 		// The position and z-index make sure the footerswoosh is not partially hidden.
 		$embed_html = <<<HTM
@@ -287,7 +287,7 @@ HTM;
 		$response = json_decode( $response, true );
 
 		if ( $response ) {
-			set_transient( 'aap_available_aad_reports', $response['value'], WEEK_IN_SECONDS );
+			set_transient( 'sample_available_aad_reports', $response['value'], WEEK_IN_SECONDS );
 			write_to_error_log( '$response[\'value\'] from ' . __FUNCTION__ . ':' . __LINE__ . ' is set with ' . print_r( $response['value'], true ) );
 		}
 

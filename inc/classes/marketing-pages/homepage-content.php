@@ -3,13 +3,13 @@
  * [$homepage_content]
  *
  * @var string
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 $homepage_content = '
 <!-- wp:cover {"url":"' . WP_CONTENT_URL . '/uploads/2021/06/home-banner-1.png","id":161,"dimRatio":0,"overlayColor":"white","focalPoint":{"x":"0.50","y":"0.50"},"minHeight":500,"contentPosition":"center center","align":"full","className":"hero-section","style":{"spacing":{"padding":{"top":"150px","right":"20px","bottom":"100px","left":"20px"}}}} -->
 <div class="wp-block-cover alignfull has-white-background-color hero-section" style="padding-top:150px;padding-right:20px;padding-bottom:100px;padding-left:20px;min-height:500px"><img class="wp-block-cover__image-background wp-image-161" alt="" src="' . WP_CONTENT_URL . '/uploads/2021/06/home-banner-1.png" style="object-position:50% 50%" data-object-fit="cover" data-object-position="50% 50%"/><div class="wp-block-cover__inner-container"><!-- wp:image {"align":"center","id":957,"width":345,"height":162,"sizeSlug":"large","linkDestination":"none","className":"hero-section-logo"} -->
-<div class="wp-block-image hero-section-logo"><figure class="aligncenter size-large is-resized"><img src="' . WP_CONTENT_URL . '/uploads/2021/09/aap-logo.svg" alt="" class="wp-image-957" width="345" height="162"/></figure></div>
+<div class="wp-block-image hero-section-logo"><figure class="aligncenter size-large is-resized"><img src="' . WP_CONTENT_URL . '/uploads/2021/09/sample-logo.svg" alt="" class="wp-image-957" width="345" height="162"/></figure></div>
 <!-- /wp:image -->
 
 <!-- wp:paragraph {"align":"center","className":"hero-section-sub-heading","fontSize":"normal"} -->
@@ -86,12 +86,12 @@ $homepage_content = '
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"callout-p","fontSize":"small"} -->
-<p class="callout-p has-small-font-size">We offer a free purchasing analysis, <a href="https://www.retailplanograms.com/" target="_blank" rel="noreferrer noopener">Retail Plan-O-Grams</a>, <a href="https://store.apirx.com/customer/account/login/" target="_blank" rel="noreferrer noopener">product recommendations</a>, and more based on your pharmacy and your customer base. <a href="//aapcontentdev.wpengine.com/aap-membership/" target="_blank" rel="noreferrer noopener">more</a></p>
+<p class="callout-p has-small-font-size">We offer a free purchasing analysis, <a href="https://www.retailplanograms.com/" target="_blank" rel="noreferrer noopener">Retail Plan-O-Grams</a>, <a href="https://store.apirx.com/customer/account/login/" target="_blank" rel="noreferrer noopener">product recommendations</a>, and more based on your pharmacy and your customer base. <a href="//aapcontentdev.wpengine.com/sample-membership/" target="_blank" rel="noreferrer noopener">more</a></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons {"contentJustification":"left"} -->
 <div class="wp-block-buttons is-content-justification-left"><!-- wp:button {"fontSize":"small"} -->
-<div class="wp-block-button has-custom-font-size has-small-font-size"><a class="wp-block-button__link" href="' . WP_CONTENT_URL . '/aap-membership/#get-started-now">Become an Sample Member</a></div>
+<div class="wp-block-button has-custom-font-size has-small-font-size"><a class="wp-block-button__link" href="' . WP_CONTENT_URL . '/sample-membership/#get-started-now">Become an Sample Member</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div></div>
 <!-- /wp:media-text --></div>
@@ -138,8 +138,8 @@ $homepage_content = '
 <!-- wp:group {"align":"full","className":"member-benefits-callout"} -->
 <div class="wp-block-group alignfull member-benefits-callout"><!-- wp:columns {"verticalAlignment":"center","align":"full"} -->
 <div class="wp-block-columns alignfull are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center"} -->
-<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"align":"center","id":704,"sizeSlug":"full","linkDestination":"custom","className":"is-style-aap-member-benefits"} -->
-<div class="wp-block-image is-style-aap-member-benefits"><figure class="aligncenter size-full"><a href="' . WP_CONTENT_URL . '/profitamp/"><img src="' . WP_CONTENT_URL . '/uploads/2021/08/graph-img-1.png" alt="" class="wp-image-704"/></a></figure></div>
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"align":"center","id":704,"sizeSlug":"full","linkDestination":"custom","className":"is-style-sample-member-benefits"} -->
+<div class="wp-block-image is-style-sample-member-benefits"><figure class="aligncenter size-full"><a href="' . WP_CONTENT_URL . '/profitamp/"><img src="' . WP_CONTENT_URL . '/uploads/2021/08/graph-img-1.png" alt="" class="wp-image-704"/></a></figure></div>
 <!-- /wp:image -->
 
 <!-- wp:image {"align":"center","id":496,"sizeSlug":"full","linkDestination":"none","className":"is-style-default"} -->
@@ -152,8 +152,8 @@ $homepage_content = '
 <!-- /wp:column -->
 
 <!-- wp:column {"verticalAlignment":"center"} -->
-<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"align":"center","id":930,"sizeSlug":"full","linkDestination":"custom","className":"is-style-aap-member-benefits"} -->
-<div class="wp-block-image is-style-aap-member-benefits"><figure class="aligncenter size-full"><a href="' . WP_CONTENT_URL . '/five-common-blunders/"><img src="' . WP_CONTENT_URL . '/uploads/2021/09/pharmacist-img.png" alt="" class="wp-image-930"/></a></figure></div>
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"align":"center","id":930,"sizeSlug":"full","linkDestination":"custom","className":"is-style-sample-member-benefits"} -->
+<div class="wp-block-image is-style-sample-member-benefits"><figure class="aligncenter size-full"><a href="' . WP_CONTENT_URL . '/five-common-blunders/"><img src="' . WP_CONTENT_URL . '/uploads/2021/09/pharmacist-img.png" alt="" class="wp-image-930"/></a></figure></div>
 <!-- /wp:image -->
 
 <!-- wp:group -->

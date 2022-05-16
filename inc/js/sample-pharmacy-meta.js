@@ -1,7 +1,7 @@
 /**
  *  Register post meta for Pharmacy
  *
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  **/
 
 (function (wp) {
@@ -16,9 +16,9 @@
 	const NumberControl        = wp.components.__experimentalNumberControl;
 
 	registerBlockType(
-		'rxaap-blocks/pharmacy-meta',
+		'rxsample-blocks/pharmacy-meta',
 		{
-			title: __( 'Pharmacy Meta', 'rxaap-blocks' ),
+			title: __( 'Pharmacy Meta', 'rxsample-blocks' ),
 			icon: {
 				src: 'sos',
 				background: 'maroon',
@@ -38,94 +38,94 @@
 				const meta       = entityProp[0];
 				const setMeta    = entityProp[1];
 
-				const metaPharmacyID = meta['_rxaap_pharmacy_id'];
+				const metaPharmacyID = meta['_rxsample_pharmacy_id'];
 
-				const metaPharmacyGroup = meta['_rxaap_pharmacy_itthinx_id'];
+				const metaPharmacyGroup = meta['_rxsample_pharmacy_itthinx_id'];
 				function updatePharmacyGroup(newValue) {
 					setMeta(
 						Object.assign(
 							{},
 							meta,
 							{
-								_rxaap_pharmacy_itthinx_id: newValue,
+								_rxsample_pharmacy_itthinx_id: newValue,
 							}
 						)
 					);
 				}
 
-				const metaParentGroup = meta['_rxaap_pharmacy_parent_id'];
+				const metaParentGroup = meta['_rxsample_pharmacy_parent_id'];
 				function updateParentGroup(newValue) {
 					setMeta(
 						Object.assign(
 							{},
 							meta,
 							{
-								_rxaap_pharmacy_parent_id: newValue,
+								_rxsample_pharmacy_parent_id: newValue,
 							}
 						)
 					);
 				}
 
-				const metaAdminUser = meta['_rxaap_pharmacy_admin_user_id'];
+				const metaAdminUser = meta['_rxsample_pharmacy_admin_user_id'];
 				function updateAdminUser(newValue) {
 					setMeta(
 						Object.assign(
 							{},
 							meta,
 							{
-								_rxaap_pharmacy_admin_user_id: newValue,
+								_rxsample_pharmacy_admin_user_id: newValue,
 							}
 						)
 					);
 				}
 
-				const metaOrgID = meta['_rxaap_org_id'];
+				const metaOrgID = meta['_rxsample_org_id'];
 				function updateOrgID(newValue) {
 					setMeta(
 						Object.assign(
 							{},
 							meta,
 							{
-								_rxaap_org_id: newValue,
+								_rxsample_org_id: newValue,
 							}
 						)
 					);
 				}
 
-				const metaPharmAddress = meta['_rxaap_pharmacy_address'];
+				const metaPharmAddress = meta['_rxsample_pharmacy_address'];
 				function updatePharmAddress(newValue) {
 					setMeta(
 						Object.assign(
 							{},
 							meta,
 							{
-								_rxaap_pharmacy_address: newValue,
+								_rxsample_pharmacy_address: newValue,
 							}
 						)
 					);
 				}
 
-				const metaPharmCity = meta['_rxaap_pharmacy_city'];
+				const metaPharmCity = meta['_rxsample_pharmacy_city'];
 				function updatePharmCity(newValue) {
 					setMeta(
 						Object.assign(
 							{},
 							meta,
 							{
-								_rxaap_pharmacy_city: newValue,
+								_rxsample_pharmacy_city: newValue,
 							}
 						)
 					);
 				}
 
-				const metaPharmState = meta['_rxaap_pharmacy_state'];
+				const metaPharmState = meta['_rxsample_pharmacy_state'];
 				function updatePharmState(newValue) {
 					setMeta(
 						Object.assign(
 							{},
 							meta,
 							{
-								_rxaap_pharmacy_state: newValue,
+								_rxsample_pharmacy_state: newValue,
 							}
 						)
 					);

@@ -2,7 +2,7 @@
 /**
  * Adds modifications that use Ultimate Member plugin hooks.
  *
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -22,6 +22,8 @@ class Sample_Ultimate_Member_Mods {
 
 
 
+
+
 	/**
 	 * Main construct.
 	 *
@@ -31,39 +33,39 @@ class Sample_Ultimate_Member_Mods {
 	 */
 	public function __construct() {
 		add_action( 'template_redirect', array( $this, 'um_restrict_login_page_logged_in' ) );
-		add_filter( 'um_registration_for_loggedin_users', array( $this, 'aap_wp_modify_um_registration_for_loggedin_users' ), 10, 2 );
-		add_action( 'um_before_register_form_is_loaded', array( $this, 'aap_enqueue_registration_script' ), 10, 1 );
+		add_filter( 'um_registration_for_loggedin_users', array( $this, 'sample_wp_modify_um_registration_for_loggedin_users' ), 10, 2 );
+		add_action( 'um_before_register_form_is_loaded', array( $this, 'sample_enqueue_registration_script' ), 10, 1 );
 
 		// When a User's profile is updated.
 		// The User's pharmacies are copied to a second usermeta.
-		add_action( 'um_user_pre_updating_profile', array( $this, 'aap_wp_um_user_pre_updating_profile' ), 10, 2 );
+		add_action( 'um_user_pre_updating_profile', array( $this, 'sample_wp_um_user_pre_updating_profile' ), 10, 2 );
 
 		// When a User's profile is updated.
 		// The User's pharmacies are sent to the Azure DB if they have changed.
-		add_action( 'um_after_user_updated', array( $this, 'aap_wp_user_edited_um_profile' ), 10, 3 );
+		add_action( 'um_after_user_updated', array( $this, 'sample_wp_user_edited_um_profile' ), 10, 3 );
 
 		// When a User's status is set or changed to "approved".
 		// The User's pharmacies are sent to the Azure DB.
-		add_action( 'um_after_user_is_approved', array( $this, 'aap_wp_um_after_user_is_approved' ), 10, 1 );
+		add_action( 'um_after_user_is_approved', array( $this, 'sample_wp_um_after_user_is_approved' ), 10, 1 );
 
 		// If a User's status is changed to anything other than "approved".
 		// This will delete the User's pharmacies from the Azure DB.
 		// It leaves the User's pharmacies (if any) in the WP UserMeta table.
-		add_action( 'um_after_user_status_is_changed', array( $this, 'aap_wp_um_after_user_status_is_changed' ), 10, 2 );
+		add_action( 'um_after_user_status_is_changed', array( $this, 'sample_wp_um_after_user_status_is_changed' ), 10, 2 );
 
 		// Deleting a User through Ultimate Member does not trigger a status change.
 		// This will make sure the User pharmacies are taken out of the Azure DB.
-		add_action( 'um_delete_user', array( $this, 'aap_wp_um_delete_user' ), 10, 1 );
+		add_action( 'um_delete_user', array( $this, 'sample_wp_um_delete_user' ), 10, 1 );
 
-		add_action( 'wp_enqueue_scripts', array( $this, 'aap_wp_functionality_frontend_scripts' ) );
-		add_filter( 'um_admin_user_actions_hook', array( $this, 'aap_filter_admin_user_actions' ), 10, 1 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'sample_wp_functionality_frontend_scripts' ) );
+		add_filter( 'um_admin_user_actions_hook', array( $this, 'sample_filter_admin_user_actions' ), 10, 1 );
 
 		// User-query arguments, member directory settings.
-		add_filter( 'um_prepare_user_query_args', array( $this, 'aap_custom_um_user_query_args' ), 99, 2 );
+		add_filter( 'um_prepare_user_query_args', array( $this, 'sample_custom_um_user_query_args' ), 99, 2 );
 	}
 
 	/**
-	 * [aap_wp_modify_um_registration_for_loggedin_users description]
+	 * [sample_wp_modify_um_registration_for_loggedin_users description]
 	 * Enable registration for logged in users.
 	 * Logged in users with access to the registration screen.
 	 * will be able to register other users.
@@ -75,30 +77,30 @@ class Sample_Ultimate_Member_Mods {
 	 *
 	 * @return boolean
 	 */
-	public function aap_wp_modify_um_registration_for_loggedin_users( $enable, $args ) {
+	public function sample_wp_modify_um_registration_for_loggedin_users( $enable, $args ) {
 		$enable = true;
 		return $enable;
 	}
 
 	/**
-	 * [aap_wp_functionality_frontend_scripts description]
+	 * [sample_wp_functionality_frontend_scripts description]
 	 *
 	 * @since 1.0.0
 	 *
 	 * @return void
 	 */
-	public function aap_wp_functionality_frontend_scripts() {
+	public function sample_wp_functionality_frontend_scripts() {
 		wp_register_style( 'ultimate-member', plugins_url( 'css/ultimate-member.css', __DIR__ ), array(), filemtime( plugin_dir_path( dirname( __DIR__ ) . '/css/ultimate-member.css' ) ) );
 		wp_enqueue_style( 'ultimate-member' );
 	}
 
 	/**
-	 * [aap_enqueue_registration_script]
+	 * [sample_enqueue_registration_script]
 	 *
 	 * @since 0.13.0
 	 * @return void
 	 */
-	public function aap_enqueue_registration_script() {
+	public function sample_enqueue_registration_script() {
 		wp_enqueue_script( 'turn-autocomplete-off' );
 	}
 
@@ -117,8 +119,8 @@ class Sample_Ultimate_Member_Mods {
 	}
 
 	/**
-	 * [aap_filter_admin_user_actions]
-	 * [aap_wp_functionality_frontend_scripts description]
+	 * [sample_filter_admin_user_actions]
+	 * [sample_wp_functionality_frontend_scripts description]
 	 *
 	 * @since 1.0.0
 	 *
@@ -129,7 +131,7 @@ class Sample_Ultimate_Member_Mods {
 	 * @param array $actions User actions.
 	 * @return array
 	 */
-	public function aap_filter_admin_user_actions( $actions ) {
+	public function sample_filter_admin_user_actions( $actions ) {
 		unset( $actions['um_delete'] );
 		return $actions;
 	}
@@ -144,7 +146,7 @@ class Sample_Ultimate_Member_Mods {
 	 *
 	 * @return void
 	 */
-	public function aap_wp_um_after_user_is_approved( $user_id ) {
+	public function sample_wp_um_after_user_is_approved( $user_id ) {
 		// Get pharmacy ids.
 		$wp_user = get_user_by( 'ID', $user_id );
 
@@ -155,8 +157,8 @@ class Sample_Ultimate_Member_Mods {
 		$new_user_org_group_names = stripslashes_deep( $new_user_org_group_names );
 
 		// Translate $new_user_group_names (name strings) into group_ids.
-		$new_user_group_pharmacyids     = $this->aap_wp_translate_group_names_to_group_ids( $new_user_group_names );
-		$new_user_group_organizationids = $this->aap_wp_translate_group_names_to_group_ids( $new_user_org_group_names );
+		$new_user_group_pharmacyids     = $this->sample_wp_translate_group_names_to_group_ids( $new_user_group_names );
+		$new_user_group_organizationids = $this->sample_wp_translate_group_names_to_group_ids( $new_user_org_group_names );
 
 		// Put $new_user_group_pharmacyids into UserMeta pharmacy_group_ids.
 		update_user_meta( $user_id, 'pharmacy_group_ids', $new_user_group_pharmacyids );
@@ -166,10 +168,10 @@ class Sample_Ultimate_Member_Mods {
 		Groups_User_Group::deleted_user( $user_id );
 
 		// Add ITThinx groups to the user.
-		$this->aap_wp_add_groups_to_user( $user_id, $new_user_group_pharmacyids );
-		$this->aap_wp_add_groups_to_user( $user_id, $new_user_group_organizationids );
+		$this->sample_wp_add_groups_to_user( $user_id, $new_user_group_pharmacyids );
+		$this->sample_wp_add_groups_to_user( $user_id, $new_user_group_organizationids );
 
-		$new_user_pharmacyids = $this->aap_wp_translate_group_ids_to_aap_pharmacy_ids( $new_user_group_pharmacyids );
+		$new_user_pharmacyids = $this->sample_wp_translate_group_ids_to_sample_pharmacy_ids( $new_user_group_pharmacyids );
 
 		if ( false === $new_user_pharmacyids ) {
 			return;
@@ -186,7 +188,7 @@ class Sample_Ultimate_Member_Mods {
 		$user_info_to_send = wp_json_encode( $user_info_to_send );
 
 		if ( ! empty( $user_info_to_send ) ) {
-			$response = $this->aap_wp_send_profile_info( $user_info_to_send );
+			$response = $this->sample_wp_send_profile_info( $user_info_to_send );
 		}
 	}
 
@@ -200,7 +202,7 @@ class Sample_Ultimate_Member_Mods {
 	 *
 	 * @return void
 	 */
-	private function aap_wp_add_groups_to_user( $user_id, $new_user_group_pharmacyids ) {
+	private function sample_wp_add_groups_to_user( $user_id, $new_user_group_pharmacyids ) {
 		if ( empty( $new_user_group_pharmacyids ) || ! is_array( $new_user_group_pharmacyids ) ) {
 			return;
 		}
@@ -225,7 +227,7 @@ class Sample_Ultimate_Member_Mods {
 	 *
 	 * @return void
 	 */
-	private function aap_wp_delete_groups_of_user( $user_id, $new_user_group_pharmacyids ) {
+	private function sample_wp_delete_groups_of_user( $user_id, $new_user_group_pharmacyids ) {
 		if ( empty( $new_user_group_pharmacyids ) || ! is_array( $new_user_group_pharmacyids ) ) {
 			return;
 		}
@@ -244,7 +246,7 @@ class Sample_Ultimate_Member_Mods {
 	 *
 	 * @return array|false
 	 */
-	private function aap_wp_translate_group_names_to_group_ids( $group_names ) {
+	private function sample_wp_translate_group_names_to_group_ids( $group_names ) {
 		if ( ! method_exists( 'Groups_Group', 'read_by_name' ) ) {
 			return false;
 		}
@@ -279,7 +281,7 @@ class Sample_Ultimate_Member_Mods {
 	 *
 	 * @return void
 	 */
-	public function aap_wp_um_delete_user( $user_id, $specific_pharmacy_ids = null ) {
+	public function sample_wp_um_delete_user( $user_id, $specific_pharmacy_ids = null ) {
 		// Get pharmacy ids.
 		$wp_user = get_user_by( 'ID', $user_id );
 
@@ -291,10 +293,10 @@ class Sample_Ultimate_Member_Mods {
 
 		if ( null === $specific_pharmacy_ids ) {
 			// Remove the User from the ITThinx groups.
-			$this->aap_wp_delete_groups_of_user( $user_id, $deleted_user_group_pharmacyids );
+			$this->sample_wp_delete_groups_of_user( $user_id, $deleted_user_group_pharmacyids );
 		}
 
-		$deleted_user_pharmacyids = $this->aap_wp_translate_group_ids_to_aap_pharmacy_ids( $deleted_user_group_pharmacyids );
+		$deleted_user_pharmacyids = $this->sample_wp_translate_group_ids_to_sample_pharmacy_ids( $deleted_user_group_pharmacyids );
 
 		if ( false === $deleted_user_pharmacyids ) {
 			return;
@@ -312,7 +314,7 @@ class Sample_Ultimate_Member_Mods {
 		$user_info_to_send = wp_json_encode( $user_info_to_send );
 
 		if ( ! empty( $user_info_to_send ) ) {
-			$response = $this->aap_wp_send_profile_info( $user_info_to_send );
+			$response = $this->sample_wp_send_profile_info( $user_info_to_send );
 		}
 	}
 
@@ -329,10 +331,10 @@ class Sample_Ultimate_Member_Mods {
 	 *
 	 * @return void
 	 */
-	public function aap_wp_um_after_user_status_is_changed( $status, $user_id ) {
+	public function sample_wp_um_after_user_status_is_changed( $status, $user_id ) {
 		if ( 'approved' !== $status ) {
 			// Delete from all pharmacy groups and update Azure DB.
-			$this->aap_wp_um_delete_user( $user_id );
+			$this->sample_wp_um_delete_user( $user_id );
 
 			// Delete user from any/all previous groups just in case there were any.
 			Groups_User_Group::deleted_user( $user_id );
@@ -349,7 +351,7 @@ class Sample_Ultimate_Member_Mods {
 	 *
 	 * @return void
 	 */
-	public function aap_wp_um_user_pre_updating_profile( $to_update, $user_id ) {
+	public function sample_wp_um_user_pre_updating_profile( $to_update, $user_id ) {
 		$wp_user = get_user_by( 'ID', $user_id );
 
 		$old_user_pharmacyids     = $wp_user->get( 'pharmacy_group_ids' );
@@ -358,24 +360,24 @@ class Sample_Ultimate_Member_Mods {
 		update_user_meta( $user_id, 'prev_pharmacy_group_ids', $old_user_pharmacyids );
 		update_user_meta( $user_id, 'prev_organization_group_ids', $old_user_organizationids );
 
-		$this->aap_wp_delete_groups_of_user( $user_id, $old_user_pharmacyids );
-		$this->aap_wp_delete_groups_of_user( $user_id, $old_user_organizationids );
+		$this->sample_wp_delete_groups_of_user( $user_id, $old_user_pharmacyids );
+		$this->sample_wp_delete_groups_of_user( $user_id, $old_user_organizationids );
 
 		// Convert strings ( $to_update['pharmacy_names'] ) to pharmacy group_ids.
 		// Translate $new_user_group_names (name strings) into group_ids.
 		$new_user_group_names       = stripslashes_deep( $to_update['pharmacy_names'] );
-		$new_user_group_pharmacyids = $this->aap_wp_translate_group_names_to_group_ids( $new_user_group_names );
+		$new_user_group_pharmacyids = $this->sample_wp_translate_group_names_to_group_ids( $new_user_group_names );
 
 		$new_user_org_group_names       = stripslashes_deep( $to_update['organization_names'] );
-		$new_user_group_organizationids = $this->aap_wp_translate_group_names_to_group_ids( $new_user_org_group_names );
+		$new_user_group_organizationids = $this->sample_wp_translate_group_names_to_group_ids( $new_user_org_group_names );
 
 		// Put $new_user_group_pharmacyids into UserMeta pharmacy_group_ids.
 		// Set new "pharmacy_group_ids" based on converted strings.
 		update_user_meta( $user_id, 'pharmacy_group_ids', $new_user_group_pharmacyids );
 		update_user_meta( $user_id, 'organization_group_ids', $new_user_group_organizationids );
 
-		$this->aap_wp_add_groups_to_user( $user_id, $new_user_group_pharmacyids );
-		$this->aap_wp_add_groups_to_user( $user_id, $new_user_group_organizationids );
+		$this->sample_wp_add_groups_to_user( $user_id, $new_user_group_pharmacyids );
+		$this->sample_wp_add_groups_to_user( $user_id, $new_user_group_organizationids );
 	}
 
 	/**
@@ -389,7 +391,7 @@ class Sample_Ultimate_Member_Mods {
 	 *
 	 * @return void
 	 */
-	public function aap_member_updated_um_profile( $user_id, $args, $userinfo ) {
+	public function sample_member_updated_um_profile( $user_id, $args, $userinfo ) {
 		$user_info['function'] = __FUNCTION__;
 		$user_info['file']     = basename( __FILE__ );
 		$user_info['user_id']  = $user_id;
@@ -410,14 +412,14 @@ class Sample_Ultimate_Member_Mods {
 	 *
 	 * @return void
 	 */
-	public function aap_wp_user_edited_um_profile( $user_id, $args, $userinfo ) {
+	public function sample_wp_user_edited_um_profile( $user_id, $args, $userinfo ) {
 		$current_wp_user = get_user_by( 'ID', $user_id );
 
 		// If the UM User was removed from all Orgs then remove UM User from all groups.
 		$group_organizationids = $current_wp_user->get( 'organization_group_ids' );
 		if ( empty( $group_organizationids ) ) {
 			// Remove from pharmacy groups and update Azure DB.
-			$this->aap_wp_um_delete_user( $user_id );
+			$this->sample_wp_um_delete_user( $user_id );
 
 			// Delete user from any/all previous groups just in case there were any.
 			Groups_User_Group::deleted_user( $user_id );
@@ -453,30 +455,30 @@ class Sample_Ultimate_Member_Mods {
 		if ( isset( $group_pharmacyids ) ) {
 			if ( count( $old_user_pharmacyids ) > 0 && count( $group_pharmacyids ) === 0 ) {
 				// Delete the old pharmacies from the Azure DB.
-				$this->aap_wp_um_delete_user( $user_id, $old_user_pharmacyids );
+				$this->sample_wp_um_delete_user( $user_id, $old_user_pharmacyids );
 				return;
 			}
 		}
 
 		// Delete the old pharmacies from the Azure DB.
-		$this->aap_wp_um_delete_user( $user_id, $old_user_pharmacyids );
+		$this->sample_wp_um_delete_user( $user_id, $old_user_pharmacyids );
 
-		$rxaap_pharmacyids = $this->aap_wp_translate_group_ids_to_aap_pharmacy_ids( $group_pharmacyids );
+		$rxsample_pharmacyids = $this->sample_wp_translate_group_ids_to_sample_pharmacy_ids( $group_pharmacyids );
 
-		if ( false === $rxaap_pharmacyids ) {
+		if ( false === $rxsample_pharmacyids ) {
 			return;
 		}
 
 		// Add the new pharmacies to the Azure DB.
 		$user_info_to_send = array(
 			'userid'      => $user_id,
-			'pharmacyids' => $rxaap_pharmacyids,
+			'pharmacyids' => $rxsample_pharmacyids,
 			'actiontype'  => $action_type,
 		);
 		$user_info_to_send = wp_json_encode( $user_info_to_send );
 
 		if ( ! empty( $user_info_to_send ) ) {
-			$response = $this->aap_wp_send_profile_info( $user_info_to_send );
+			$response = $this->sample_wp_send_profile_info( $user_info_to_send );
 		}
 	}
 
@@ -489,23 +491,23 @@ class Sample_Ultimate_Member_Mods {
 	 *
 	 * @return array
 	 */
-	private function aap_wp_translate_group_ids_to_aap_pharmacy_ids( $group_ids ) {
-		$rxaap_pharmacy_ids = array();
+	private function sample_wp_translate_group_ids_to_sample_pharmacy_ids( $group_ids ) {
+		$rxsample_pharmacy_ids = array();
 
 		if ( ! is_array( $group_ids ) ) {
 			return false;
 		}
 
-		// RxSample Pharmacy ids are in the rxaap_pharmacy post meta data.
-		// Stored as "_rxaap_pharmacy_itthinx_id".
+		// RxSample Pharmacy ids are in the rxsample_pharmacy post meta data.
+		// Stored as "_rxsample_pharmacy_itthinx_id".
 		$query_args = array(
-			'post_type'  => 'rxaap_pharmacy',
+			'post_type'  => 'rxsample_pharmacy',
 			'fields'     => 'ids',
 			// Setup the "meta query".
             // phpcs:ignore
             'meta_query' => array(
 				array(
-					'key'     => '_rxaap_pharmacy_itthinx_id',
+					'key'     => '_rxsample_pharmacy_itthinx_id',
 					'value'   => $group_ids,
 					// Set the compare operator.
 					'compare' => 'IN',
@@ -516,15 +518,15 @@ class Sample_Ultimate_Member_Mods {
 		$ids_of_posts_w_desired_itthinx_ids = get_posts( $query_args );
 
 		foreach ( $ids_of_posts_w_desired_itthinx_ids as $id_of_posts_w_desired_itthinx_id ) {
-			// Get Post Meta _rxaap_pharmacy_id.
-			$rxaap_pharmacy_id = get_post_meta( $id_of_posts_w_desired_itthinx_id, '_rxaap_pharmacy_id', true );
+			// Get Post Meta _rxsample_pharmacy_id.
+			$rxsample_pharmacy_id = get_post_meta( $id_of_posts_w_desired_itthinx_id, '_rxsample_pharmacy_id', true );
 
-			if ( ! empty( $rxaap_pharmacy_id ) ) {
-				$rxaap_pharmacy_ids[] = $rxaap_pharmacy_id;
+			if ( ! empty( $rxsample_pharmacy_id ) ) {
+				$rxsample_pharmacy_ids[] = $rxsample_pharmacy_id;
 			}
 		}
 
-		return $rxaap_pharmacy_ids;
+		return $rxsample_pharmacy_ids;
 	}
 
 	/**
@@ -536,7 +538,7 @@ class Sample_Ultimate_Member_Mods {
 	 *
 	 * @return string|false
 	 */
-	private function aap_wp_send_profile_info( $user_info_to_send ) {
+	private function sample_wp_send_profile_info( $user_info_to_send ) {
 		$url          = defined( 'Sample_AZURE_PHARMACY_ASSIGNMENT_URL' ) ? Sample_AZURE_PHARMACY_ASSIGNMENT_URL : ''; // 'https://wordpressazurefunctions-dev2.azurewebsites.net/api/AddUpdateUserPharmacyAssignment?code=dnu3p/CQEACW55bNuOYhMt9q8oaVW/mJay/HagazfueBfnvygiU8ug==';
 		$request_type = 'POST';
 		$header       = array(
@@ -592,10 +594,10 @@ class Sample_Ultimate_Member_Mods {
 	 *
 	 * @return array
 	 */
-	public function aap_custom_um_user_query_args( $user_query_args, $dir_settings_args ) {
+	public function sample_custom_um_user_query_args( $user_query_args, $dir_settings_args ) {
 		$current_wp_user = wp_get_current_user();
 
-		if ( current_user_can( 'administrator' ) || in_array( 'um_aap-super-admin', (array) $current_wp_user->roles, true ) ) {
+		if ( current_user_can( 'administrator' ) || in_array( 'um_sample-super-admin', (array) $current_wp_user->roles, true ) ) {
 			$user_query_args['include'] = array();
 			return $user_query_args;
 		}

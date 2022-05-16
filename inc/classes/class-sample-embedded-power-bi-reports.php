@@ -3,7 +3,7 @@
  * This creates the framework for showing Embedded Power BI Reports.
  *
  * @since 0.8.4
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -26,8 +26,8 @@ class Sample_Embedded_Power_Bi_Reports {
 	 * @return void
 	 */
 	public function __construct() {
-		add_shortcode( 'rxaap_embedded_powerbi_report', array( $this, 'handle_embedded_bi_report_shortcode' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'aap_wp_shortcode_wp_enqueue_scripts' ) );
+		add_shortcode( 'rxsample_embedded_powerbi_report', array( $this, 'handle_embedded_bi_report_shortcode' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'sample_wp_shortcode_wp_enqueue_scripts' ) );
 	}
 
 	/**
@@ -37,9 +37,9 @@ class Sample_Embedded_Power_Bi_Reports {
 	 *
 	 * @return void
 	 */
-	public function aap_wp_shortcode_wp_enqueue_scripts() {
+	public function sample_wp_shortcode_wp_enqueue_scripts() {
 		wp_register_script(
-			'aap-ms-default-powerbi-client',
+			'sample-ms-default-powerbi-client',
 			plugins_url( '/js/ms-default-powerbi-client.js', __DIR__ ),
 			array(),
 			'1.0.0',
@@ -47,15 +47,15 @@ class Sample_Embedded_Power_Bi_Reports {
 		);
 
 		wp_register_script(
-			'aap-embedded-power-bi-reports',
-			plugins_url( '/js/aap-embedded-power-bi-reports.js', __DIR__ ),
+			'sample-embedded-power-bi-reports',
+			plugins_url( '/js/sample-embedded-power-bi-reports.js', __DIR__ ),
 			array( 'jquery' ),
 			'1.0.0',
 			true
 		);
 
 		wp_register_style(
-			'aap-embedded-power-bi-reports',
+			'sample-embedded-power-bi-reports',
 			plugins_url( '/css/embedded-power-bi-reports.css', __DIR__ ),
 			array(),
 			filemtime( plugin_dir_path( __DIR__ ) . 'css/embedded-power-bi-reports.css' ),
@@ -108,30 +108,30 @@ class Sample_Embedded_Power_Bi_Reports {
         //$report_token = $this->get_report_token_step_four( $group_id, $report_details['id'], $authorization_token, '9999999' );
 
 		// The microsoft powerbi javascript library.
-		wp_enqueue_script( 'aap-ms-default-powerbi-client' );
+		wp_enqueue_script( 'sample-ms-default-powerbi-client' );
 
 		// Configuration javascript.
-		wp_enqueue_script( 'aap-embedded-power-bi-reports' );
+		wp_enqueue_script( 'sample-embedded-power-bi-reports' );
 
 		// Embedded Power Bi CSS.
-		wp_enqueue_style( 'aap-embedded-power-bi-reports' );
+		wp_enqueue_style( 'sample-embedded-power-bi-reports' );
 
 		// Customized configuration settings.
 		$power_bi_config_js = <<<EOT
             // Embed application token.
             // from generate token step (1-AccessToken.php).
-            var rx_aap_txtAccessToken = "$report_token"; 
+            var rx_sample_txtAccessToken = "$report_token"; 
 
             // Embed URL.
             // from report details result (3-GetReportDetails.php).
-            var rx_aap_txtEmbedUrl = "{$report_details['embedUrl']}";
+            var rx_sample_txtEmbedUrl = "{$report_details['embedUrl']}";
 
             // Report Id.
             // from report details result (3-GetReportDetails.php).
-            var rx_aap_txtEmbedReportId = "{$report_details['id']}";
+            var rx_sample_txtEmbedReportId = "{$report_details['id']}";
 EOT;
 
-		wp_add_inline_script( 'aap-embedded-power-bi-reports', $power_bi_config_js, 'before' );
+		wp_add_inline_script( 'sample-embedded-power-bi-reports', $power_bi_config_js, 'before' );
 
 		// The position and z-index make sure the footerswoosh is not partially hidden.
 		$embed_html = <<<HTM

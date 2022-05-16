@@ -60,7 +60,7 @@ General deployment flow:
 -   v0.8.5 Adding customizer
 -   v0.8.4 Add Embedded Power Bi Reports
 -   v0.8.3 Fix version comparison in dev workflow
--   v0.8.2 Add bulk_add endpoint (wp/v2/rxaap_pharmacy/bulk_add)
+-   v0.8.2 Add bulk_add endpoint (wp/v2/rxsample_pharmacy/bulk_add)
 -   v0.8.1 Meta Block for Orgs CPT
 -   v0.8.0 Meta Block for Pharmacies CPT, remove Limit Core Blocks
 -   v0.7.9 Add Sample CSV upload file -- Import users and customers from CSV plugin

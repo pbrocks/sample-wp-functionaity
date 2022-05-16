@@ -1,7 +1,7 @@
 /**
  *  Register post meta for Organizations
  *
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  **/
 
 (function (wp) {
@@ -16,9 +16,9 @@
 	const NumberControl        = wp.components.__experimentalNumberControl;
 
 	registerBlockType(
-		'rxaap-blocks/organization-meta',
+		'rxsample-blocks/organization-meta',
 		{
-			title: __( 'Org Meta', 'rxaap-blocks' ),
+			title: __( 'Org Meta', 'rxsample-blocks' ),
 			icon: {
 				src: 'sos',
 				background: 'maroon',
@@ -38,40 +38,40 @@
 				const meta       = entityProp[0];
 				const setMeta    = entityProp[1];
 
-				const metaOrgGroup = meta['es5_aap_org_group_id'];
+				const metaOrgGroup = meta['es5_sample_org_group_id'];
 				function updateOrgGroup(newValue) {
 					setMeta(
 						Object.assign(
 							{},
 							meta,
 							{
-								es5_aap_org_group_id: newValue,
+								es5_sample_org_group_id: newValue,
 							}
 						)
 					);
 				}
 
-				const metaParentGroup = meta['es5_aap_org_parent_group_id'];
+				const metaParentGroup = meta['es5_sample_org_parent_group_id'];
 				function updateParentGroup(newValue) {
 					setMeta(
 						Object.assign(
 							{},
 							meta,
 							{
-								es5_aap_org_parent_group_id: newValue,
+								es5_sample_org_parent_group_id: newValue,
 							}
 						)
 					);
 				}
 
-				const metaAdminUser = meta['es5_aap_org_admin_user_id'];
+				const metaAdminUser = meta['es5_sample_org_admin_user_id'];
 				function updateAdminUser(newValue) {
 					setMeta(
 						Object.assign(
 							{},
 							meta,
 							{
-								es5_aap_org_admin_user_id: newValue,
+								es5_sample_org_admin_user_id: newValue,
 							}
 						)
 					);

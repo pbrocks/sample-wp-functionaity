@@ -4,7 +4,7 @@
  *
  * @var string
  *
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,6 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 0.1.0
  */
 class Sample_Functionality_Setup {
+
+
 
 	/**
 	 * Main construct
@@ -38,12 +40,12 @@ class Sample_Functionality_Setup {
 	 */
 	public function admin_enqueue_scripts() {
 		wp_register_style(
-			'aap-admin',
-			plugins_url( 'css/aap-admin.css', __DIR__ ),
+			'sample-admin',
+			plugins_url( 'css/sample-admin.css', __DIR__ ),
 			array(),
-			filemtime( plugin_dir_path( __DIR__ ) . '/css/aap-admin.css' )
+			filemtime( plugin_dir_path( __DIR__ ) . '/css/sample-admin.css' )
 		);
-		wp_enqueue_style( 'aap-admin' );
+		wp_enqueue_style( 'sample-admin' );
 	}
 }
 new Sample_Functionality_Setup();

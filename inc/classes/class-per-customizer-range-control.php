@@ -3,7 +3,7 @@
  * Initialize customizer range slider functionality.
  *
  * @since 0.8.5
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 if ( ! class_exists( 'WP_Customize_Control' ) ) {
@@ -15,6 +15,7 @@ if ( ! class_exists( 'WP_Customize_Control' ) ) {
  * Link https://github.com/soderlind/class-customizer-range-value-control
  */
 class Per_Customizer_Range_Control extends WP_Customize_Control {
+
 
 	/**
 	 * Name of Custom Control.

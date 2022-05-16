@@ -3,7 +3,7 @@
  *
  * Enable/disable the control title by toggeling its .disabled-control-title style class on or off.
  *
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 (function ($) {

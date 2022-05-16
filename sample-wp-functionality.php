@@ -10,40 +10,40 @@
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:     sample-wp-functionality
  *
- * @package         aap_wp_functionality
+ * @package         sample_wp_functionality
  */
 
 defined( 'ABSPATH' ) || die( 'File cannot be accessed directly' );
 
-register_activation_hook( __FILE__, 'aap_wp_functionality_install' );
+register_activation_hook( __FILE__, 'sample_wp_functionality_install' );
 /**
  * Set a transient in order to redirect upon activation.
  */
-function aap_wp_functionality_install() {
-	set_transient( 'aap_wp_functionality_activated', true, 30 );
+function sample_wp_functionality_install() {
+	set_transient( 'sample_wp_functionality_activated', true, 30 );
 	if ( ! wp_next_scheduled( 'update_pharmacy_data' ) ) {
 		wp_schedule_event( time(), 'hourly', 'update_pharmacy_data' );
 	}
 }
 
-register_deactivation_hook( __FILE__, 'aap_wp_functionality_uninstall' );
+register_deactivation_hook( __FILE__, 'sample_wp_functionality_uninstall' );
 /**
  * Clear Pharmacy Updater hook on deactivation.
  *
  * @return void
  */
-function aap_wp_functionality_uninstall() {
-	 wp_clear_scheduled_hook( 'update_pharmacy_data' );
+function sample_wp_functionality_uninstall() {
+	wp_clear_scheduled_hook( 'update_pharmacy_data' );
 }
 
-add_action( 'plugins_loaded', 'aap_wp_functionality_php_initialization' );
+add_action( 'plugins_loaded', 'sample_wp_functionality_php_initialization' );
 /**
  * Initialize php files.
  *
  * @since 0.1.0
  */
-function aap_wp_functionality_php_initialization() {
-	/**
+function sample_wp_functionality_php_initialization() {
+	 /**
 	 * Include all php files in /inc directory.
 	 */
 	if ( file_exists( __DIR__ . '/inc' ) && is_dir( __DIR__ . '/inc' ) ) {
@@ -62,17 +62,17 @@ function aap_wp_functionality_php_initialization() {
 	}
 }
 
-add_action( 'plugins_loaded', 'aap_wp_functionality_load_textdomain' );
+add_action( 'plugins_loaded', 'sample_wp_functionality_load_textdomain' );
 /**
  * Setup WordPress localization support
  *
  * @since 0.1.0
  */
-function aap_wp_functionality_load_textdomain() {
+function sample_wp_functionality_load_textdomain() {
 	load_plugin_textdomain( 'sample-wp-functionality', false, basename( dirname( __FILE__ ) ) . '/languages' );
 }
 
-add_filter( 'plugin_row_meta', 'aap_wp_functionality_plugin_row_meta', 10, 2 );
+add_filter( 'plugin_row_meta', 'sample_wp_functionality_plugin_row_meta', 10, 2 );
 /**
  * Show row meta on the plugin screen.
  *
@@ -83,7 +83,7 @@ add_filter( 'plugin_row_meta', 'aap_wp_functionality_plugin_row_meta', 10, 2 );
  *
  * @since  0.1.0
  */
-function aap_wp_functionality_plugin_row_meta( $links, $file ) {
+function sample_wp_functionality_plugin_row_meta( $links, $file ) {
 	if ( strpos( $file, 'sample-wp-functionality.php' ) !== false ) {
 		$new_links = array(
 			'<a href="' . esc_url( 'https://github.com/pbrocks/sample-wp-functionality' ) . '" title="' . esc_attr( __( 'View Documentation', 'sample-wp-functionality' ) ) . '">' . __( 'Docs', 'sample-wp-functionality' ) . '</a>',

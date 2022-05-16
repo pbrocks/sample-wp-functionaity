@@ -3,7 +3,7 @@
  * Class to build Block Patterns.
  *
  * @since 0.1.0
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -22,113 +22,113 @@ class Sample_WP_Block_Patterns {
 	 * @since 0.1.0
 	 */
 	public function __construct() {
-		add_action( 'enqueue_block_assets', array( $this, 'aap_wp_block_pattern_scripts' ) );
-		add_action( 'enqueue_block_editor_assets', array( $this, 'aap_wp_editor_block_pattern_scripts' ) );
-		add_action( 'init', array( $this, 'aap_marketing_homepage_block_pattern' ) );
-		add_action( 'init', array( $this, 'aap_marketing_become_member_block_pattern' ) );
-		add_action( 'init', array( $this, 'aap_marketing_api_customer_block_pattern' ) );
-		add_action( 'init', array( $this, 'aap_marketing_profit_amp_block_pattern' ) );
-		add_action( 'init', array( $this, 'aap_marketing_covers_block_pattern' ) );
-		add_action( 'init', array( $this, 'aap_marketing_gravity_forms_block_pattern' ) );
-		add_action( 'init', array( $this, 'aap_marketing_round_images_block_pattern' ) );
-		add_action( 'init', array( $this, 'aap_marketing_sections_block_pattern' ) );
-		add_action( 'init', array( $this, 'aap_marketing_pages_pattern_categories' ) );
+		add_action( 'enqueue_block_assets', array( $this, 'sample_wp_block_pattern_scripts' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'sample_wp_editor_block_pattern_scripts' ) );
+		add_action( 'init', array( $this, 'sample_marketing_homepage_block_pattern' ) );
+		add_action( 'init', array( $this, 'sample_marketing_become_member_block_pattern' ) );
+		add_action( 'init', array( $this, 'sample_marketing_api_customer_block_pattern' ) );
+		add_action( 'init', array( $this, 'sample_marketing_profit_amp_block_pattern' ) );
+		add_action( 'init', array( $this, 'sample_marketing_covers_block_pattern' ) );
+		add_action( 'init', array( $this, 'sample_marketing_gravity_forms_block_pattern' ) );
+		add_action( 'init', array( $this, 'sample_marketing_round_images_block_pattern' ) );
+		add_action( 'init', array( $this, 'sample_marketing_sections_block_pattern' ) );
+		add_action( 'init', array( $this, 'sample_marketing_pages_pattern_categories' ) );
 	}
 
 	/**
-	 * [aap_wp_block_pattern_scripts description]
+	 * [sample_wp_block_pattern_scripts description]
 	 *
 	 * @since 1.0.0
 	 */
-	public function aap_wp_block_pattern_scripts() {
+	public function sample_wp_block_pattern_scripts() {
 		wp_register_style( 'block-pattern', plugins_url( 'css/block-pattern.css', __DIR__ ), array(), time() );
 		wp_register_style( 'block-styles', plugins_url( 'css/block-styles.css', __DIR__ ), array(), time() );
 		wp_enqueue_style( 'block-pattern' );
 		wp_enqueue_style( 'block-styles' );
 	}
 	/**
-	 * [aap_wp_editor_block_pattern_scripts description]
+	 * [sample_wp_editor_block_pattern_scripts description]
 	 *
 	 * @since 1.0.0
 	 */
-	public function aap_wp_editor_block_pattern_scripts() {
+	public function sample_wp_editor_block_pattern_scripts() {
 		wp_register_style(
 			'editor-styles',
 			plugins_url( 'css/editor-styles.css', __DIR__ ),
 			array(),
-			filemtime( plugin_dir_path( __DIR__ ) . '/css/editor-styles.css' )
+			filemtime( plugin_dir_path( __DIR__ ) . 'css/editor-styles.css' )
 		);
 		wp_register_script(
-			'aap-block-adjustments',
-			plugins_url( 'js/aap-block-adjustments.js', __DIR__ ),
+			'sample-block-adjustments',
+			plugins_url( 'js/sample-block-adjustments.js', __DIR__ ),
 			array(),
-			filemtime( plugin_dir_path( __DIR__ ) . '/js/aap-block-adjustments.js' ),
+			filemtime( plugin_dir_path( __DIR__ ) . 'js/sample-block-adjustments.js' ),
 			true
 		);
 		wp_enqueue_style( 'editor-styles' );
-		wp_enqueue_script( 'aap-block-adjustments' );
+		wp_enqueue_script( 'sample-block-adjustments' );
 	}
 
 	/**
-	 * [aap_marketing_pages_pattern_categories]
+	 * [sample_marketing_pages_pattern_categories]
 	 * Check first if the register_block_pattern_category exists.
 	 *
 	 * @return [type] [description]
 	 */
-	public function aap_marketing_pages_pattern_categories() {
+	public function sample_marketing_pages_pattern_categories() {
 		if ( ! function_exists( 'register_block_pattern_category' ) ) {
 			return;
 		}
 
 		register_block_pattern_category(
-			'rxaap-covers',
+			'rxsample-covers',
 			array(
-				'label' => __( 'RxSample Hero Covers', 'rxaap-blocks' ),
+				'label' => __( 'RxSample Hero Covers', 'rxsample-blocks' ),
 			)
 		);
 		register_block_pattern_category(
-			'rxaap-gravity-forms',
+			'rxsample-gravity-forms',
 			array(
-				'label' => __( 'RxSample Gravity Forms', 'rxaap-blocks' ),
+				'label' => __( 'RxSample Gravity Forms', 'rxsample-blocks' ),
 			)
 		);
 		register_block_pattern_category(
-			'rxaap-round-images',
+			'rxsample-round-images',
 			array(
-				'label' => __( 'RxSample Round Images', 'rxaap-blocks' ),
+				'label' => __( 'RxSample Round Images', 'rxsample-blocks' ),
 			)
 		);
 		register_block_pattern_category(
-			'rxaap-sections',
+			'rxsample-sections',
 			array(
-				'label' => __( 'RxSample Sections', 'rxaap-blocks' ),
+				'label' => __( 'RxSample Sections', 'rxsample-blocks' ),
 			)
 		);
 		register_block_pattern_category(
-			'rxaap-pages',
+			'rxsample-pages',
 			array(
-				'label' => __( 'RxSample Pages', 'rxaap-blocks' ),
+				'label' => __( 'RxSample Pages', 'rxsample-blocks' ),
 			)
 		);
 	}
 
 	/**
-	 * [aap_marketing_homepage_block_pattern]
+	 * [sample_marketing_homepage_block_pattern]
 	 *
 	 * Register block patterns.
 	 *
 	 * @link https://developer.wordpress.org/block-editor/developers/block-api/block-patterns/
 	 */
-	public function aap_marketing_homepage_block_pattern() {
+	public function sample_marketing_homepage_block_pattern() {
 		if ( class_exists( 'WP_Block_Patterns_Registry' ) ) {
-			$content = $this->aap_marketing_homepage_content();
+			$content = $this->sample_marketing_homepage_content();
 			register_block_pattern(
-				'rxaap-blocks/homepage',
+				'rxsample-blocks/homepage',
 				array(
-					'title'       => __( 'Homepage', 'rxaap-blocks' ),
-					'description' => _x( 'Five section page with hero image, media-text, and .', 'Block pattern description', 'rxaap-blocks' ),
+					'title'       => __( 'Homepage', 'rxsample-blocks' ),
+					'description' => _x( 'Five section page with hero image, media-text, and .', 'Block pattern description', 'rxsample-blocks' ),
 					'content'     => trim( $content ),
-					'categories'  => array( 'rxaap-pages' ),
+					'categories'  => array( 'rxsample-pages' ),
 					'keywords'    => array( 'homepage' ),
 				)
 			);
@@ -136,22 +136,22 @@ class Sample_WP_Block_Patterns {
 	}
 
 	/**
-	 * [aap_marketing_become_member_block_pattern]
+	 * [sample_marketing_become_member_block_pattern]
 	 *
 	 * Register block patterns.
 	 *
 	 * @link https://developer.wordpress.org/block-editor/developers/block-api/block-patterns/
 	 */
-	public function aap_marketing_become_member_block_pattern() {
+	public function sample_marketing_become_member_block_pattern() {
 		if ( class_exists( 'WP_Block_Patterns_Registry' ) ) {
-			$become_member = $this->aap_marketing_aap_member_content();
+			$become_member = $this->sample_marketing_sample_member_content();
 			register_block_pattern(
-				'rxaap-blocks/become-member',
+				'rxsample-blocks/become-member',
 				array(
-					'title'       => __( 'Become a Member', 'rxaap-blocks' ),
-					'description' => _x( 'Five section page with hero image, media-text, and .', 'Block pattern description', 'rxaap-blocks' ),
+					'title'       => __( 'Become a Member', 'rxsample-blocks' ),
+					'description' => _x( 'Five section page with hero image, media-text, and .', 'Block pattern description', 'rxsample-blocks' ),
 					'content'     => trim( $become_member ),
-					'categories'  => array( 'rxaap-pages' ),
+					'categories'  => array( 'rxsample-pages' ),
 					'keywords'    => array( 'become-member' ),
 				)
 			);
@@ -159,22 +159,22 @@ class Sample_WP_Block_Patterns {
 	}
 
 	/**
-	 * [aap_marketing_api_customer_block_pattern]
+	 * [sample_marketing_api_customer_block_pattern]
 	 *
 	 * Register block patterns.
 	 *
 	 * @link https://developer.wordpress.org/block-editor/developers/block-api/block-patterns/
 	 */
-	public function aap_marketing_api_customer_block_pattern() {
+	public function sample_marketing_api_customer_block_pattern() {
 		if ( class_exists( 'WP_Block_Patterns_Registry' ) ) {
-			$api_customer = $this->aap_marketing_api_customer_content();
+			$api_customer = $this->sample_marketing_api_customer_content();
 			register_block_pattern(
-				'rxaap-blocks/api-customer',
+				'rxsample-blocks/api-customer',
 				array(
-					'title'       => __( 'API Customer', 'rxaap-blocks' ),
-					'description' => _x( 'Five section page with hero image, media-text, and .', 'Block pattern description', 'rxaap-blocks' ),
+					'title'       => __( 'API Customer', 'rxsample-blocks' ),
+					'description' => _x( 'Five section page with hero image, media-text, and .', 'Block pattern description', 'rxsample-blocks' ),
 					'content'     => trim( $api_customer ),
-					'categories'  => array( 'rxaap-pages' ),
+					'categories'  => array( 'rxsample-pages' ),
 					'keywords'    => array( 'api-customer' ),
 				)
 			);
@@ -182,22 +182,22 @@ class Sample_WP_Block_Patterns {
 	}
 
 	/**
-	 * [aap_marketing_profit_amp_block_pattern]
+	 * [sample_marketing_profit_amp_block_pattern]
 	 *
 	 * Register block patterns.
 	 *
 	 * @link https://developer.wordpress.org/block-editor/developers/block-profit/block-patterns/
 	 */
-	public function aap_marketing_profit_amp_block_pattern() {
+	public function sample_marketing_profit_amp_block_pattern() {
 		if ( class_exists( 'WP_Block_Patterns_Registry' ) ) {
-			$profit_amp = $this->aap_marketing_profit_amp_content();
+			$profit_amp = $this->sample_marketing_profit_amp_content();
 			register_block_pattern(
-				'rxaap-blocks/profit-amp',
+				'rxsample-blocks/profit-amp',
 				array(
-					'title'       => __( 'ProfitAmp', 'rxaap-blocks' ),
-					'description' => _x( 'Five section page with hero image, media-text, and .', 'Block pattern description', 'rxaap-blocks' ),
+					'title'       => __( 'ProfitAmp', 'rxsample-blocks' ),
+					'description' => _x( 'Five section page with hero image, media-text, and .', 'Block pattern description', 'rxsample-blocks' ),
 					'content'     => trim( $profit_amp ),
-					'categories'  => array( 'rxaap-pages' ),
+					'categories'  => array( 'rxsample-pages' ),
 					'keywords'    => array( 'profit-amp' ),
 				)
 			);
@@ -205,7 +205,7 @@ class Sample_WP_Block_Patterns {
 	}
 
 	/**
-	 * [aap_marketing_covers_block_pattern]
+	 * [sample_marketing_covers_block_pattern]
 	 *
 	 * Register block patterns.
 	 *
@@ -213,22 +213,22 @@ class Sample_WP_Block_Patterns {
 	 *
 	 * @return [type] [description]
 	 */
-	public function aap_marketing_covers_block_pattern() {
+	public function sample_marketing_covers_block_pattern() {
 		if ( ! class_exists( 'WP_Block_Patterns_Registry' ) ) {
 			return;
 		}
 
-		$covers = $this->aap_marketing_cover_content();
+		$covers = $this->sample_marketing_cover_content();
 
 		foreach ( $covers as $key => $cover ) {
 			register_block_pattern(
-				'rxaap-blocks/' . preg_replace( '/_+/', '-', $key ),
+				'rxsample-blocks/' . preg_replace( '/_+/', '-', $key ),
 				array(
 					// phpcs:ignore
-					'title'       => __( ucwords( preg_replace( '/_+/', ' ', $key ) ), 'rxaap-blocks' ),
-					'description' => _x( 'Five cover page with hero image, media-text, and .', 'Block pattern description', 'rxaap-blocks' ),
+					'title'       => __( ucwords( preg_replace( '/_+/', ' ', $key ) ), 'rxsample-blocks' ),
+					'description' => _x( 'Five cover page with hero image, media-text, and .', 'Block pattern description', 'rxsample-blocks' ),
 					'content'     => trim( $covers[ $key ] ),
-					'categories'  => array( 'rxaap-covers' ),
+					'categories'  => array( 'rxsample-covers' ),
 					'keywords'    => array( preg_replace( '/_+/', '-', $key ) ),
 				)
 			);
@@ -236,7 +236,7 @@ class Sample_WP_Block_Patterns {
 	}
 
 	/**
-	 * [aap_marketing_gravity_forms_block_pattern]
+	 * [sample_marketing_gravity_forms_block_pattern]
 	 *
 	 * Register block patterns.
 	 *
@@ -244,29 +244,29 @@ class Sample_WP_Block_Patterns {
 	 *
 	 * @return [type] [description]
 	 */
-	public function aap_marketing_gravity_forms_block_pattern() {
+	public function sample_marketing_gravity_forms_block_pattern() {
 		if ( ! class_exists( 'WP_Block_Patterns_Registry' ) ) {
 			return;
 		}
 
-		$gravity_forms = $this->aap_marketing_gravity_forms();
+		$gravity_forms = $this->sample_marketing_gravity_forms();
 
 		foreach ( $gravity_forms as $key => $gravity ) {
 			register_block_pattern(
-				'rxaap-blocks/' . preg_replace( '/_+/', '-', $key ),
+				'rxsample-blocks/' . preg_replace( '/_+/', '-', $key ),
 				array(
 					// phpcs:ignore
-					'title'       => __( ucwords( preg_replace( '/_+/', ' ', $key ) ), 'rxaap-blocks' ),
-					'description' => _x( 'Gravity Forms Sections.', 'Block pattern description', 'rxaap-blocks' ),
+					'title'       => __( ucwords( preg_replace( '/_+/', ' ', $key ) ), 'rxsample-blocks' ),
+					'description' => _x( 'Gravity Forms Sections.', 'Block pattern description', 'rxsample-blocks' ),
 					'content'     => trim( $gravity_forms[ $key ] ),
-					'categories'  => array( 'rxaap-gravity-forms' ),
+					'categories'  => array( 'rxsample-gravity-forms' ),
 					'keywords'    => array( preg_replace( '/_+/', '-', $key ) ),
 				)
 			);
 		}
 	}
 	/**
-	 * [aap_marketing_round_images_block_pattern]
+	 * [sample_marketing_round_images_block_pattern]
 	 *
 	 * Register block patterns.
 	 *
@@ -274,29 +274,29 @@ class Sample_WP_Block_Patterns {
 	 *
 	 * @return [type] [description]
 	 */
-	public function aap_marketing_round_images_block_pattern() {
+	public function sample_marketing_round_images_block_pattern() {
 		if ( ! class_exists( 'WP_Block_Patterns_Registry' ) ) {
 			return;
 		}
 
-		$round_images = $this->aap_marketing_round_content();
+		$round_images = $this->sample_marketing_round_content();
 
 		foreach ( $round_images as $key => $round ) {
 			register_block_pattern(
-				'rxaap-blocks/' . preg_replace( '/_+/', '-', $key ),
+				'rxsample-blocks/' . preg_replace( '/_+/', '-', $key ),
 				array(
 					// phpcs:ignore
-					'title'       => __( ucwords( preg_replace( '/_+/', ' ', $key ) ), 'rxaap-blocks' ),
-					'description' => _x( 'Sections with round images.', 'Block pattern description', 'rxaap-blocks' ),
+					'title'       => __( ucwords( preg_replace( '/_+/', ' ', $key ) ), 'rxsample-blocks' ),
+					'description' => _x( 'Sections with round images.', 'Block pattern description', 'rxsample-blocks' ),
 					'content'     => trim( $round_images[ $key ] ),
-					'categories'  => array( 'rxaap-round-images' ),
+					'categories'  => array( 'rxsample-round-images' ),
 					'keywords'    => array( preg_replace( '/_+/', '-', $key ) ),
 				)
 			);
 		}
 	}
 	/**
-	 * [aap_marketing_sections_block_pattern]
+	 * [sample_marketing_sections_block_pattern]
 	 *
 	 * Register block patterns.
 	 *
@@ -304,22 +304,22 @@ class Sample_WP_Block_Patterns {
 	 *
 	 * @return [type] [description]
 	 */
-	public function aap_marketing_sections_block_pattern() {
+	public function sample_marketing_sections_block_pattern() {
 		if ( ! class_exists( 'WP_Block_Patterns_Registry' ) ) {
 			return;
 		}
 
-		$sections = $this->aap_marketing_section_content();
+		$sections = $this->sample_marketing_section_content();
 
 		foreach ( $sections as $key => $section ) {
 			register_block_pattern(
-				'rxaap-blocks/' . preg_replace( '/_+/', '-', $key ),
+				'rxsample-blocks/' . preg_replace( '/_+/', '-', $key ),
 				array(
 					// phpcs:ignore
-					'title'       => __( ucwords( preg_replace( '/_+/', ' ', $key ) ), 'rxaap-blocks' ),
-					'description' => _x( 'Five section page with hero image, media-text, and .', 'Block pattern description', 'rxaap-blocks' ),
+					'title'       => __( ucwords( preg_replace( '/_+/', ' ', $key ) ), 'rxsample-blocks' ),
+					'description' => _x( 'Five section page with hero image, media-text, and .', 'Block pattern description', 'rxsample-blocks' ),
 					'content'     => trim( $sections[ $key ] ),
-					'categories'  => array( 'rxaap-sections' ),
+					'categories'  => array( 'rxsample-sections' ),
 					'keywords'    => array( preg_replace( '/_+/', '-', $key ) ),
 				)
 			);
@@ -327,7 +327,7 @@ class Sample_WP_Block_Patterns {
 	}
 
 	/**
-	 * [aap_marketing_homepage_content]
+	 * [sample_marketing_homepage_content]
 	 *
 	 * Returns homepage content.
 	 *
@@ -335,14 +335,14 @@ class Sample_WP_Block_Patterns {
 	 *
 	 * @return [type] [description]
 	 */
-	public function aap_marketing_homepage_content() {
+	public function sample_marketing_homepage_content() {
 		require __DIR__ . '/marketing-pages/homepage-content.php';
 
 		return $homepage_content;
 	}
 
 	/**
-	 * [aap_marketing_aap_member_content]
+	 * [sample_marketing_sample_member_content]
 	 *
 	 * Returns aap member content.
 	 *
@@ -350,14 +350,14 @@ class Sample_WP_Block_Patterns {
 	 *
 	 * @return [type] [description]
 	 */
-	public function aap_marketing_aap_member_content() {
+	public function sample_marketing_sample_member_content() {
 		require __DIR__ . '/marketing-pages/become-member.php';
 
 		return $become_member;
 	}
 
 	/**
-	 * [aap_marketing_api_customer_content]
+	 * [sample_marketing_api_customer_content]
 	 *
 	 * Returns api customer content.
 	 *
@@ -365,14 +365,14 @@ class Sample_WP_Block_Patterns {
 	 *
 	 * @return [type] [description]
 	 */
-	public function aap_marketing_api_customer_content() {
+	public function sample_marketing_api_customer_content() {
 		require __DIR__ . '/marketing-pages/api-customer.php';
 
 		return $api_customer;
 	}
 
 	/**
-	 * [aap_marketing_profit_amp_content]
+	 * [sample_marketing_profit_amp_content]
 	 *
 	 * Returns profitamp content.
 	 *
@@ -380,14 +380,14 @@ class Sample_WP_Block_Patterns {
 	 *
 	 * @return [type] [description]
 	 */
-	public function aap_marketing_profit_amp_content() {
+	public function sample_marketing_profit_amp_content() {
 		require __DIR__ . '/marketing-pages/profit-amp.php';
 
 		return $profit_amp;
 	}
 
 	/**
-	 * [aap_marketing_cover_content]
+	 * [sample_marketing_cover_content]
 	 *
 	 * Returns marketing cover content.
 	 *
@@ -395,14 +395,14 @@ class Sample_WP_Block_Patterns {
 	 *
 	 * @return [type] [description]
 	 */
-	public function aap_marketing_cover_content() {
+	public function sample_marketing_cover_content() {
 		require __DIR__ . '/marketing-pages/cover-content.php';
 
 		return $covers;
 	}
 
 	/**
-	 * [aap_marketing_gravity_forms]
+	 * [sample_marketing_gravity_forms]
 	 *
 	 * Returns marketing gravity forms.
 	 *
@@ -410,13 +410,13 @@ class Sample_WP_Block_Patterns {
 	 *
 	 * @return [type] [description]
 	 */
-	public function aap_marketing_gravity_forms() {
+	public function sample_marketing_gravity_forms() {
 		require __DIR__ . '/marketing-pages/gravity-forms.php';
 
 		return $gravity_forms;
 	}
 	/**
-	 * [aap_marketing_round_content]
+	 * [sample_marketing_round_content]
 	 *
 	 * Returns marketing sections with round images.
 	 *
@@ -424,13 +424,13 @@ class Sample_WP_Block_Patterns {
 	 *
 	 * @return [type] [description]
 	 */
-	public function aap_marketing_round_content() {
+	public function sample_marketing_round_content() {
 		require __DIR__ . '/marketing-pages/round-images.php';
 
 		return $round_images;
 	}
 	/**
-	 * [aap_marketing_section_content]
+	 * [sample_marketing_section_content]
 	 *
 	 * Returns marketing section content.
 	 *
@@ -438,7 +438,7 @@ class Sample_WP_Block_Patterns {
 	 *
 	 * @return [type] [description]
 	 */
-	public function aap_marketing_section_content() {
+	public function sample_marketing_section_content() {
 		require __DIR__ . '/marketing-pages/section-content.php';
 
 		return $sections;

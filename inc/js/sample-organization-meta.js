@@ -1,7 +1,7 @@
 /**
  *  Register post meta for Organizations
  *
- * @package aap_wp_functionality
+ * @package sample_wp_functionality
  **/
 
 (function (wp) {
@@ -16,9 +16,9 @@
 	const NumberControl        = wp.components.__experimentalNumberControl;
 
 	registerBlockType(
-		'rxaap-blocks/organization-meta',
+		'rxsample-blocks/organization-meta',
 		{
-			title: __( 'Organization Meta', 'rxaap-blocks' ),
+			title: __( 'Organization Meta', 'rxsample-blocks' ),
 			icon: {
 				src: 'carrot',
 				background: 'maroon',
@@ -38,66 +38,66 @@
 				const meta       = entityProp[0];
 				const setMeta    = entityProp[1];
 
-				const metaOrgGroup = meta['_rxaap_org_id'];
+				const metaOrgGroup = meta['_rxsample_org_id'];
 				function updateOrgGroup(newValue) {
 					setMeta(
 						Object.assign(
 							{},
 							meta,
 							{
-								_rxaap_org_id: newValue,
+								_rxsample_org_id: newValue,
 							}
 						)
 					);
 				}
 
-				const metaParentGroup = meta['_rxaap_org_itthinx_group_id'];
+				const metaParentGroup = meta['_rxsample_org_itthinx_group_id'];
 				function updateParentGroup(newValue) {
 					setMeta(
 						Object.assign(
 							{},
 							meta,
 							{
-								_rxaap_org_itthinx_group_id: newValue,
+								_rxsample_org_itthinx_group_id: newValue,
 							}
 						)
 					);
 				}
 
-				const metaOrgOtherGroups = meta['_rxaap_org_other_groups'];
+				const metaOrgOtherGroups = meta['_rxsample_org_other_groups'];
 				function updateOrgOtherGroups(newValue) {
 					setMeta(
 						Object.assign(
 							{},
 							meta,
 							{
-								_rxaap_org_other_groups: newValue,
+								_rxsample_org_other_groups: newValue,
 							}
 						)
 					);
 				}
 
-				const metaAdminUser = meta['_rxaap_org_owner_wpuser_id'];
+				const metaAdminUser = meta['_rxsample_org_owner_wpuser_id'];
 				function updateAdminUser(newValue) {
 					setMeta(
 						Object.assign(
 							{},
 							meta,
 							{
-								_rxaap_org_owner_wpuser_id: newValue,
+								_rxsample_org_owner_wpuser_id: newValue,
 							}
 						)
 					);
 				}
 
-				const metaOrgName = meta['_rxaap_org_name'];
+				const metaOrgName = meta['_rxsample_org_name'];
 				function updateOrgName(newValue) {
 					setMeta(
 						Object.assign(
 							{},
 							meta,
 							{
-								_rxaap_org_name: newValue,
+								_rxsample_org_name: newValue,
 							}
 						)
 					);
