@@ -1,0 +1,149 @@
+/**
+ * Ultimate Member CSS.
+ */
+
+.um-account {
+	position: relative;
+	z-index: 5;
+}
+@media only screen and (min-width: 1400px) {
+	.um-account {
+		bottom: 11rem;
+	}
+}
+@media only screen and (min-width: 1000px) {
+	.um-account {
+		bottom: 9rem;
+	}
+}
+
+.aap-organization-img {
+	position: relative;
+	z-index: 5;
+}
+
+.um-account-meta.radius-1 img {
+	border: 0.5rem solid #fff;
+}
+
+.um-page-loggedin .um-new-dropdown ul li a {
+	padding: 6px;
+	line-height: 1.4;
+}
+
+.um-page-loggedin.um-page-user .um-cover-e img {
+	width: 100% !important;
+	transform: translateY(-10rem);
+}
+
+.um-page-loggedin
+.um-directory
+.um-members-wrapper
+.um-members.um-members-grid
+.um-member
+.um-member-card
+.um-members-edit-btn
+a.um-edit-profile-btn:before {
+	content: "\f142";
+}
+
+/* Make the account menu horizontal */
+.um.um-account .um-account-side,
+.um.um-account .um-account-main {
+	float: none;
+	margin-bottom: 1em;
+	margin-left: 0px;
+	padding: 0px;
+	max-width: 100%;
+	width: 100%;
+}
+
+.um.um-account .um-account-side ul {
+	border: none;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.um.um-account .um-account-side ul li {
+	margin: 0px 4px 4px 0px !important;
+}
+
+.um.um-account .um-account-side ul a.current {
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+.um.um-account .um-account-side ul span.um-account-icontip {
+	padding: 0em 0.7em;
+	width: initial;
+}
+
+.um.um-account .um-account-side ul span.um-account-title {
+	padding-right: 20px;
+}
+
+.um.um-account .um-account-side ul span.um-account-arrow {
+	display: none;
+}
+
+#um_account_submit_general {
+	border: 1px solid #1b75bb !important;
+}
+
+.um-page-loggedin header > h1 {
+	text-align: center;
+}
+
+.site .acui_frontend_submit {
+	border: 2px solid var(--button--color-background);
+}
+
+#uploadfile.acui_frontend_file {
+	padding: 1rem;
+	border: 2px solid lightgray;
+	border-radius: 4px;
+	background-color: aliceblue;
+	margin: 0 1rem;
+}
+
+.um-cover-add i {
+	display: none;
+}
+
+.um-faicon-gear:before,
+.um-faicon-cog:before {
+	content: "\f142" !important;
+}
+
+.um-form
+> form
+> .um-account-main
+> .um-account-tab
+> .um-col-alt
+> .um-left
+> .um-button:not(:hover),
+.um-form > form > .um-col-alt > .um-left > .um-button:not(:hover) {
+	background-color: #1b75bb;
+	color: #ffffff;
+}
+
+.um-form
+> form
+> .um-account-main
+> .um-account-tab
+> .um-col-alt
+> .um-left
+> .um-button:hover,
+.um-form > form > .um-col-alt > .um-left > .um-button:hover {
+	color: #ffffff;
+}
+
+.um-form > form > .um-col-alt > .um-right > .um-button:not(:hover) {
+	background-color: #777770;
+	color: #ffffff;
+}
+
+.um-form > form > .um-col-alt > .um-right > .um-button:hover {
+	background-color: #a6a69c;
+	color: #ffffff;
+}

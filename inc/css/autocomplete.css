@@ -1,0 +1,68 @@
+/* (A) AUTOCOMPLETE WRAPPER */
+.acWrap {
+	display: inline-block; /* Or block if you like */
+	position: relative;
+}
+
+/* (B) SUGGESTIONS */
+.acWrap .acSuggest {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 9;
+	width: 100%;
+	background: #fff;
+	border: 1px solid #eee;
+	display: none;
+}
+.acWrap .acSuggest ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.acWrap .acSuggest ul li {
+	padding: 10px;
+}
+.acWrap .acSuggest ul li:hover {
+	background: #d9e7ff;
+	cursor: pointer;
+}
+#aap-clear-search {
+	padding: 1px 0.5rem;
+}
+.input-fields {
+	width: 95%;
+	margin: auto;
+}
+
+.input-fields > div.title-field {
+	display: flex;
+	justify-content: center;
+}
+.input-fields > div.title-field > label {
+	min-width: 7rem;
+}
+body > div.input-fields > div.title-field > div.acWrap {
+	width: 100%;
+}
+
+#search-target {
+	padding: 0.3rem;
+	border-color: blue;
+	border-radius: 0.5rem;
+	font-size: 1rem;
+}
+.title-field {
+	margin: 2rem 0;
+	display: grid;
+	grid-template-columns: 9fr 1fr;
+}
+.input-field {
+	padding: 0.2rem 0;
+	display: grid;
+	grid-template-columns: 1fr 4.7fr;
+}
+
+.input-field input {
+	padding: 1px 5px;
+}

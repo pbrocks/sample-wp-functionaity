@@ -1,0 +1,45 @@
+.footer-section {
+	margin-top: -5rem;
+}
+
+footer.site-header .site-logo .custom-logo {
+	width: 200px;
+	height: auto;
+}
+
+@media only screen and (min-width: 500px) {
+	.footer-section {
+		margin-top: -10rem;
+	}
+}
+
+
+@media only screen and (min-width: 900px) {
+	.footer-section {
+		margin-top: -15rem;
+	}
+}
+
+
+@media only screen and (min-width: 1500px) {
+	.footer-section {
+		margin-top: -20rem;
+	}
+}
+
+
+
+.home div.wp-block-cover.alignfull.hero-section > img {
+	animation-name: heroLazyLoad;
+	animation-duration: 5s;
+}
+
+@keyframes heroLazyLoad {
+	from {
+		opacity: 0
+	}
+
+	to {
+		opacity: 1
+	}
+}

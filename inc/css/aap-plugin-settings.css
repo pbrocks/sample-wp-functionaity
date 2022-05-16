@@ -1,0 +1,21 @@
+/**
+ * adhere-plugin-style.css
+ */
+
+.multiple-checkboxes-wrap {
+	width: 76%;
+	display: grid;
+	grid-template-columns: 6% 1fr 3fr;
+}
+gridh {
+	font-weight: 700;
+	padding: 5px;
+}
+gridli {
+	font-size: 90%;
+	padding: 5px;
+}
+gridh.center,
+gridli.center {
+	text-align: center;
+}

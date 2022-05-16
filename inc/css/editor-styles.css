@@ -1,0 +1,33 @@
+#extendify-templates-inserter {
+	display: none;
+}
+
+
+[data-type="rxaap-blocks/organization-meta"] > div.components-panel > div.components-panel__body > div  {
+	font-size: .8rem;
+}
+
+/* is-style-aap-member-benefits is-style-aap-rounded-border */
+.editor-styles-wrapper
+	.member-benefits-callout
+	.wp-block-column
+	.wp-block-image.is-style-aap-rounded-border
+	img {
+	border: 1.5rem solid;
+	border-radius: 50%;
+}
+
+.editor-styles-wrapper
+	.leadership-section
+	.wp-block-column
+	.wp-block-image.is-style-aap-rounded-border
+	img {
+	border: 0.75rem solid;
+	border-radius: 50%;
+	max-height: 250px;
+	width: auto;
+}
+
+.editor-styles-wrapper figure.is-style-aap-rounded-border {
+	padding: 15%;
+}

@@ -1,0 +1,8 @@
+.toplevel_page_groups-admin #name-field {
+	min-width: 40%;
+}
+
+.toplevel_page_mapsvg-config .modal-content {
+	top: 30vh;
+	left: 30vw;
+}

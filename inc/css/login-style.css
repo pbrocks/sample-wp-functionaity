@@ -1,0 +1,37 @@
+body.login {
+	background-image: url('../../images/home-banner-1.png');
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.login h1 a {
+	background-image: url('../../images/aap-logo.png');
+	height: 90px;
+	width: 200px;
+	background-size: 200px 90px;
+	background-repeat: no-repeat;
+}
+
+.login label {
+	color: #25627d;
+	font-size: 1rem;
+}
+.login #backtoblog a,
+.login #nav a {
+	color: #25627d;
+}
+
+.login .button-primary  {
+	background-color: #899194;
+}
+.login .button-primary:hover  {
+	background-color: #D2C869;
+}
+.login form {
+	background: radial-gradient( transparent, #1B75BB );
+	border-radius: 2rem;
+	text-align: center;
+}
+.login p {
+	text-align: center;
+}

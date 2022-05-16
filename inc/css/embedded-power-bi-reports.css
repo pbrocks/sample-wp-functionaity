@@ -1,0 +1,42 @@
+/* article > .entry-content > .powerbi-container-header,
+#powerbi-container-header, */
+#pharmacy-picker {
+	display: flex;
+	background: #ede5e4;
+	max-width: unset;
+	margin-bottom: 0;
+	width: 95vw;
+	border-bottom: 3px solid #ede5e4;
+	text-align: center;
+}
+
+div.power-bi-embed-container {
+	height: 1000px;
+	/* height: 60vh; */
+	border: 2px dotted maroon;
+	width: 95vw;
+	max-width: unset !important;
+	position: relative;
+	z-index: 0;
+	margin-top: 0;
+	max-width: var(--responsive--aligndefault-width);
+}
+
+#show-search-selection {
+	min-width: 8rem;
+	padding: 0.25rem 0.5rem;
+	background: blue;
+	margin: 0 1rem;
+	font-size: 1rem;
+}
+#show-search-selection:hover {
+	background: yellow;
+}
+div.power-bi-embed-container iframe {
+	border: 0;
+}
+
+footer.entry-footer.default-max-width {
+	position: relative;
+	z-index: 1;
+}
